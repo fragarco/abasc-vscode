@@ -1,9 +1,9 @@
 {
-    "name": "amstradbasic",
-    "displayName": "AMSTRAD-Basic",
-    "description": "LOCOMOTIVE AMSTRAD BASIC syntax highlighting",
+    "name": "abascbasic",
+    "displayName": "ABASC AMSTRAD-Basic",
+    "description": "ABASC supported LOCOMOTIVE AMSTRAD BASIC syntax highlighting",
     "version": "0.0.1",
-    "publisher": "dfreniche",
+    "publisher": "fragarco",
     "engines": {
         "vscode": "^1.12.0"
     },
@@ -13,15 +13,15 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/dfreniche/amstradbasic-vscode.git"
+        "url": "https://github.com/fragarco/abasc-vscode.git"
     },
     "contributes": {
         "languages": [
             {
-                "id": "amstradbasic",
+                "id": "abascbasic",
                 "aliases": [
-                    "AMSTRAD-Basic",
-                    "amstradbasic"
+                    "ABASC AMSTRAD-Basic",
+                    "abascbasic"
                 ],
                 "extensions": [
                     ".bas"
