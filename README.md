@@ -4,12 +4,25 @@ LOCOMOTIVE SOFTWARE AMSTRAD CPC BASIC syntax highlighting for Visual Studio Code
 
 Supports all reserved words that are available in `ABASC` cross-compiler, which includes words from Locomotive BASIC versions 1.0 and 1.1 but also from Locomotive BASIC version 2 and version 2 plus.
 
-
 ## Installation
 
 1. Launch VS Code Command Palette (**Ctrl+Shift+P**)
 2. Type `install extension from Location`
 3. Select the abascbasic VSIX file.
+
+## Building from source
+
+1. Be sure you have installed the `vsce` CLI tool:
+
+```bash
+npm install -g @vscode/vsce
+```
+
+2. Run inside the plug-in folder the command:
+
+```bash
+vsce package
+```
 
 ## Acknowledgments
 
