@@ -2,7 +2,7 @@
     "name": "abascbasic",
     "displayName": "ABASC AMSTRAD-Basic",
     "description": "ABASC supported LOCOMOTIVE AMSTRAD BASIC syntax highlighting",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "fragarco",
     "engines": {
         "vscode": "^1.12.0"

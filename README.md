@@ -7,11 +7,9 @@ Supports all reserved words that are available in `ABASC` cross-compiler, which 
 
 ## Installation
 
-Launch VS Code Quick Open (**Ctrl+P**), paste the following commnand, and press Enter.
-
-```vscode
-ext install amstradbasic
-```
+1. Launch VS Code Command Palette (**Ctrl+Shift+P**)
+2. Type `install extension from Location`
+3. Select the abascbasic VSIX file.
 
 ## Acknowledgments
 
