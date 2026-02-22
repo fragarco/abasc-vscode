@@ -31,8 +31,8 @@
         ],
         "grammars": [
             {
-                "language": "amstradbasic",
-                "scopeName": "source.amstradbasic",
+                "language": "abascbasic",
+                "scopeName": "source.abascbasic",
                 "path": "./syntaxes/amstradbasic.tmLanguage.json"
             }
         ]
