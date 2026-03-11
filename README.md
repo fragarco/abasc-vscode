@@ -7,7 +7,7 @@ Supports all reserved words that are available in `ABASC` cross-compiler, which 
 ## Installation
 
 1. Launch VS Code Command Palette (**Ctrl+Shift+P**)
-2. Type `install extension from Location`
+2. Type `install extension from VSIX...`
 3. Select the abascbasic VSIX file.
 
 ## Building from source
@@ -18,11 +18,19 @@ Supports all reserved words that are available in `ABASC` cross-compiler, which 
 npm install -g @vscode/vsce
 ```
 
-2. Run inside the plug-in folder the command:
+2. Install package dependencies running `npm install` inside the project directory.
+
+3. Build the plug-in with `npx tsc` from the project directory. 
+
+4. Run inside the plug-in folder the command:
 
 ```bash
 vsce package
 ```
+
+5. You can use the command `npm run build` to execute steps 3 and 4 at once.
+
+The VSIX file will be generated inside the `out` directory.
 
 ## Acknowledgments
 
