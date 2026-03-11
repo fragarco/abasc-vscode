@@ -170,7 +170,7 @@ export const BasicInfo: vscode.CompletionItem[] = [
         "used features of BASIC that lumps constant data in DATA statements for "+
         "retrieval as required. The data type must be consistent with the variable "+
         "invoking it. A DATA statement may appear anywhere in a program. ",
-        insertText: new vscode.SnippetString('DATA')
+        insertText: new vscode.SnippetString('DATA ${1:values}')
     },
     {
         label: "DECLARE",
@@ -385,7 +385,7 @@ export const BasicInfo: vscode.CompletionItem[] = [
         documentation: "Originally, when an array was no longer required, could be ERASEd "+
         "and the memory used be reclaimed ready for other use. However, this has no effect in "+
         "ABASM.",
-        insertText: new vscode.SnippetString('')
+        insertText: new vscode.SnippetString('ERASE')
     },
     {
         label: "ERROR",
@@ -443,7 +443,7 @@ export const BasicInfo: vscode.CompletionItem[] = [
         detail: "Locomotive BASIC Command",
         documentation: "Execute a body of program a given number of times, stepping a control "+
         "variable between a start and an end value. If not specified, STEP defaults to 1.",
-        insertText: new vscode.SnippetString('FOR ${1:var}=${2:start} TO {3:end}')
+        insertText: new vscode.SnippetString('FOR ${1:var}=${2:start} TO ${3:end}')
     },
     {
         label: "FUNCTION",
@@ -562,7 +562,7 @@ export const BasicInfo: vscode.CompletionItem[] = [
         documentation: "Reads an entire line from the stream indicated. The first optional semicolon "+
         "suppresses the echo of carriage return / line feed. The default **stream** is #0 :screen "+
         "being #9 the current open file.", 
-        insertText: new vscode.SnippetString('LINE INPUT #${1:stream}, "${2:prompt}, {3:ident}')
+        insertText: new vscode.SnippetString('LINE INPUT #${1:stream}, "${2:prompt}, ${3:ident}')
     },
     {
         label: "LIST",
@@ -674,20 +674,12 @@ export const BasicInfo: vscode.CompletionItem[] = [
         insertText: new vscode.SnippetString('ON BREAK CONT')
     },
     {
-        label: "ON BREAK CONT",
-        kind: vscode.CompletionItemKind.Keyword,
-        detail: "Locomotive BASIC Command",
-        documentation: "Disables the option to break a program pressing "+
-        "the escape key twice. This is the default bahaviour of ABASC programs.",
-        insertText: new vscode.SnippetString('ON BREAK CONT')
-    },
-    {
         label: "ON BREAK STOP",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
         documentation: "Disables the trap created by ON BREAK GOSUB but "+
         "no other immediate effect. This is the default bahaviour of ABASC programs.",
-        insertText: new vscode.SnippetString('ON BREAK CONT')
+        insertText: new vscode.SnippetString('ON BREAK STOP')
     },
     {
         label: "ON BREAK GOSUB",
@@ -824,22 +816,23 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SUB",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Allow the program to define and use simple procedures "+
+        "ended with END SUB. It may be invoked throughout the program using CALL. ",
+        insertText: new vscode.SnippetString('SUB ${1:name}(${2:args})')
     },
     {
         label: "TAB",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Print the number of **spaces** relative to the left efge of the text window.",
+        insertText: new vscode.SnippetString('TAB(${1:spaces})')
     },
     {
         label: "USING",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Currently not supported by the ABASC compiler.",
+        insertText: new vscode.SnippetString('USING "{1:pattern}", ${2:value}')
     },
     {
         label: "RAD",
@@ -950,15 +943,11 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SOUND",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
-    },
-    {
-        label: "STEP",
-        kind: vscode.CompletionItemKind.Keyword,
-        detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Each SOUND channel has a queue of SOUND s to play. There is space "+
+        "in this queue for five separate SOUND commands: one active and four waiting. "+
+        "The operating system of the CPC464 can continue with other tasks while playing out "+
+        "the sound queue, only returning when necessary to pick up more SOUND commands.",
+        insertText: new vscode.SnippetString('SOUND ${1:channel}, ${2:period}, ${3:duration}, ${4:volume}, ${5:venv}, ${6:tenv}, ${7:noise}')
     },
     {
         label: "SPEED INK",
@@ -968,7 +957,7 @@ export const BasicInfo: vscode.CompletionItem[] = [
         "in which case the INK alternates between the two colours. The first **time** specifies the time "+
         "for the first INK, and the second **time** sets the time for the second INK. Times between colour "+
         "changes are measured in units of 1/50 second. (50 Hz) ",
-        insertText: new vscode.SnippetString('SPEED INK ${1:time1}, {2:time2}')
+        insertText: new vscode.SnippetString('SPEED INK ${1:time1}, ${2:time2}')
     },
     {
         label: "SPEED KEY",
@@ -976,7 +965,7 @@ export const BasicInfo: vscode.CompletionItem[] = [
         detail: "Locomotive BASIC Command",
         documentation: "If held down continuously, the keys auto repeat at the **repeat** period> after "+
         "the given **delay** period.",
-        insertText: new vscode.SnippetString('SPEED KEY ${1:repeat}, {2:delay}')
+        insertText: new vscode.SnippetString('SPEED KEY ${1:repeat}, ${2:delay}')
     },
     {
         label: "SPEED WRITE",
@@ -990,64 +979,64 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SYMBOL",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "The SYMBOL command redefines the representation of a given "+
+        "**char** that has first been specified in the SYMBOL AFTER command.",
+        insertText: new vscode.SnippetString('SYMBOL ${1:char}, ${2:values}')
     },
     {
-        label: "SWAP",
+        label: "SYMBOL AFTER",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "The number of user definable characters is set by the SYMBOL "+
+        "AFTER command. The default setting is 240.",
+        insertText: new vscode.SnippetString('SYMBOL AFTER ${1:value}')
     },
     {
         label: "TAG",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Text sent to a given stream may be redirected to be written at the graphics "+
+        "cursor position. This allows text and symbols to be mixed with graphics. "+
+        "The stream expression defaults to 0 if omitted.",
+        insertText: new vscode.SnippetString('TAG')
     },
     {
         label: "TAGOFF",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Cancels the TAG for a given stream, and sends the text to the previous "+
+        "text cursor position at the point at which TAG was invoked.",
+        insertText: new vscode.SnippetString('TAGOFF')
     },
     {
         label: "TRON",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "BASIC includes the facility to trace the execution of a program, but "+
+        "ABASC ignores these commands (TRON, TROFF).",
+        insertText: new vscode.SnippetString('TRON')
     },
     {
         label: "TROFF",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "BASIC includes the facility to trace the execution of a program, but "+
+        "ABASC ignores these commands (TRON, TROFF).",
+        insertText: new vscode.SnippetString('TROFF')
     },
     {
         label: "THEN",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
         documentation: "",
-        insertText: new vscode.SnippetString('')
-    },
-    {
-        label: "TO",
-        kind: vscode.CompletionItemKind.Keyword,
-        detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        insertText: new vscode.SnippetString('THEN')
     },
     {
         label: "STEP",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
         documentation: "",
-        insertText: new vscode.SnippetString('')
+        insertText: new vscode.SnippetString('STEP ${1:value}')
     },
     {
         label: "STOP",
@@ -1058,66 +1047,79 @@ export const BasicInfo: vscode.CompletionItem[] = [
     },
     {
         label: "UNT",
-        kind: vscode.CompletionItemKind.Keyword,
+        kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Converts an unsigned 16-bit integer in the range 0 to 65535. Returns an "+
+        "integer value in the range -32768 to +32767.",
+        insertText: new vscode.SnippetString('UNT(${1:x}')
     },
     {
         label: "WAIT",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Suspends operation until a given I/O **port** returns a "+
+        "particular value in the range 0 to 255.",
+        insertText: new vscode.SnippetString('WAIT ${1:port}, ${2:mask}')
     },
     {
         label: "WEND",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "End of a WHILE loop block.",
+        insertText: new vscode.SnippetString('WEND')
     },
     {
         label: "WHILE",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "A WHILE loop repeatedly executes a body of program until a "+
+        "given condition is true.",
+        insertText: new vscode.SnippetString('WHILE ${1:condition}')
     },
     {
         label: "WIDTH",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Tells BASIC how wide the printer is in characters. ABASC "+
+        "ignores this command.",
+        insertText: new vscode.SnippetString('WIDTH ${1:value}')
     },
     {
         label: "WINDOW",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Sets a text window for a given screen stream.",
+        insertText: new vscode.SnippetString('WINDOW #${1:stream}, ${2:left}, ${3:right}, ${4:top}, ${5:bottom}')
+    },
+    {
+        label: "WINDOW SWAP",
+        kind: vscode.CompletionItemKind.Keyword,
+        detail: "Locomotive BASIC Command",
+        documentation: "Exchanges the text windows.",
+        insertText: new vscode.SnippetString('WINDOW SWAP ${1:stream1}, ${2:stream2}')
     },
     {
         label: "WRITE",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Writes the list of **items** (strings or integers) to dist/tape.",
+        insertText: new vscode.SnippetString('WRITE ${1:items}')
     },
     {
         label: "ZONE",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Changes the **width** of the Print Zone used in PRINT, from the "+
+        "default value of 13 to a new value in the range 1 to 255.",
+        insertText: new vscode.SnippetString('ZONE ${1:width}')
     },
     {
         label: "ABS",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Returns the absolute value of the given expression which "+
+        "primarily means that negative numbers are returned as positive.",
+        insertText: new vscode.SnippetString('ABS(${1:x})')
     },
     {
         label: "ASC",
@@ -1457,15 +1459,17 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "STR$",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Converts **x** to a decimal string representation in the "+
+        "same form as used in the PRINT command.",
+        insertText: new vscode.SnippetString('STR$(${1:x})')
     },
     {
         label: "STRING$",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Delivers a string consisting of the specified **character** "+
+        "repeated a number of **x** times.",
+        insertText: new vscode.SnippetString('STRING$(${1:x}, ${2:char})')
     },
     {
         label: "SGN",
@@ -1480,56 +1484,62 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "TAN",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: " Calculates the tangent for the angle given in **x**, which "+
+        "must be in the range -200,000….+200,000, defaulting to radian measure "+
+        "unless declared otherwise by a DEG command.",
+        insertText: new vscode.SnippetString('TAN(${1:x})')
     },
     {
         label: "TEST",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Reports the value of the ink currently at the specified graphics screen location.",
+        insertText: new vscode.SnippetString('TEST(${1:x}, ${2:y})')
     },
     {
         label: "TESTR",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Moves the graphics cursor relatively from it's current location and reports "+
+        "the value of the ink at the new location.",
+        insertText: new vscode.SnippetString('TESTR(${1:x}, ${2:y})')
     },
     {
         label: "TIME",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Holds the elapsed time since switch-on, excluding periods when reading or writing "+
+        "the cassette (interrupts off). The units of time are 1/300th of a second.",
+        insertText: new vscode.SnippetString('TIME')
     },
     {
-        label: "UPPER",
+        label: "UPPER$",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Returns a new string expression the same as the input **string** expression "+
+        "but in which all lower case characters are converted to upper case.",
+        insertText: new vscode.SnippetString('UPPER$("${1:string}")')
     },
     {
         label: "VAL",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Extracts a numeric expression from the beginning of the **string**. "+
+        "The opposite of STR$.",
+        insertText: new vscode.SnippetString('VAL(${1:string})')
     },
     {
         label: "XPOS",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Returns the horizontal position of the graphics cursor.",
+        insertText: new vscode.SnippetString('XPOS')
     },
     {
         label: "YPOS",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Returns the vertical position of the graphics cursor.",
+        insertText: new vscode.SnippetString('YPOS')
     }
 ]
