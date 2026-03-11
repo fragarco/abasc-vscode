@@ -588,10 +588,6 @@ export const BasicInfo: vscode.CompletionItem[] = [
         "stream (WINDOW). Stream 0 is the default stream.",
         insertText: new vscode.SnippetString('LOCATE ${1:x}, ${2:y}')
     },
-
-    
-        """
-        self._emit_code("; MASK [<integer expression>l[,<first point setting>]")
     {
         label: "MASK",
         kind: vscode.CompletionItemKind.Keyword,
@@ -812,15 +808,17 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SHARED",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Allow routines to access global variables declared "+
+        "in the main program. The use of brackets at the end of the **ident** name means "+
+        "that the variable is an array (i.e SHARED myarray[]).",
+        insertText: new vscode.SnippetString('SHARED ${1:ident}')
     },
     {
         label: "SPC",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Prints the number of spaces specified by **chars**.",
+        insertText: new vscode.SnippetString('SPC(${1:chars})')
     },
     {
         label: "SUB",
@@ -938,15 +936,15 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SAVE",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Saves an area of memory to tape or disc. A fith optional parameter allows to specify an entry point address",
+        insertText: new vscode.SnippetString('SAVE "${1:filename}, B, ${2:address}, ${3:length}"')
     },
     {
-        label: "SELECT",
+        label: "SELECT CASE",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Runs one of several groups of statements, depending on the value of **ident**.",
+        insertText: new vscode.SnippetString('SELECT CASE ${1:ident}')
     },
     {
         label: "SOUND",
@@ -963,11 +961,30 @@ export const BasicInfo: vscode.CompletionItem[] = [
         insertText: new vscode.SnippetString('')
     },
     {
-        label: "SPEED",
+        label: "SPEED INK",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "The INK and BORDER commands allow two colours to be associated with each Ink, "+
+        "in which case the INK alternates between the two colours. The first **time** specifies the time "+
+        "for the first INK, and the second **time** sets the time for the second INK. Times between colour "+
+        "changes are measured in units of 1/50 second. (50 Hz) ",
+        insertText: new vscode.SnippetString('SPEED INK ${1:time1}, {2:time2}')
+    },
+    {
+        label: "SPEED KEY",
+        kind: vscode.CompletionItemKind.Keyword,
+        detail: "Locomotive BASIC Command",
+        documentation: "If held down continuously, the keys auto repeat at the **repeat** period> after "+
+        "the given **delay** period.",
+        insertText: new vscode.SnippetString('SPEED KEY ${1:repeat}, {2:delay}')
+    },
+    {
+        label: "SPEED WRITE",
+        kind: vscode.CompletionItemKind.Keyword,
+        detail: "Locomotive BASIC Command",
+        documentation: "The cassette can be witten at either 2000 baud (where **value** is 1), "+
+        "or the default of 1000 baud (where the **value** is 0).",
+        insertText: new vscode.SnippetString('SPEED WRITE ${1:value}')
     },
     {
         label: "SYMBOL",
@@ -1036,8 +1053,8 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "STOP",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "ABASC issues a system reboot for this command.",
+        insertText: new vscode.SnippetString('STOP')
     },
     {
         label: "UNT",
@@ -1425,15 +1442,16 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SQ",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "The SQ function is used to check the number of free entries in the queue for "+
+        "a given **channel**, where channel A is 1, B is 2, and C is 4.",
+        insertText: new vscode.SnippetString('SQ(${1:channel})')
     },
     {
         label: "SQR",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Returns the square root of **x**.",
+        insertText: new vscode.SnippetString('SQR(${1:x})')
     },
     {
         label: "STR$",
@@ -1453,8 +1471,10 @@ export const BasicInfo: vscode.CompletionItem[] = [
         label: "SGN",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
-        documentation: "",
-        insertText: new vscode.SnippetString('')
+        documentation: "Determines the sign of the <numeric expression>. Returns -1 if "+
+        "<numeric expression> is less than 0. Returns 0 if <numeric expression> "+
+        "equal 0. Returns 1 if <numeric expression> is greater than zero.",
+        insertText: new vscode.SnippetString('SGN(${1:x})')
     },
     {
         label: "TAN",
