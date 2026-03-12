@@ -26,15 +26,18 @@ export function activate(context: vscode.ExtensionContext) {
             provideHover(document, position, token) {
                 const range = document.getWordRangeAtPosition(position);
                 const word = document.getText(range).toUpperCase();
-                const basicDocs: Record<string, string> = {}
+                const basicDocs: Record<string, vscode.MarkdownString[]> = {}
 
                 for (const item of BasicInfo) {
                     if (item.label != undefined) {
-                        basicDocs[item.label as string] = item.documentation as string;
+                        basicDocs[item.label as string] = [
+                            new vscode.MarkdownString("```" + item.signature + "```"),
+                            item.documentation as vscode.MarkdownString,
+                        ];
                     }
                 }
                 if (basicDocs[word]) {
-                    return new vscode.Hover(new vscode.MarkdownString(basicDocs[word]));
+                    return new vscode.Hover(basicDocs[word]);
                 }
                 return null;
             }

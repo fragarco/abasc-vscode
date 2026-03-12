@@ -1,7 +1,7 @@
 {
     "name": "abascbasic",
-    "displayName": "ABASC AMSTRAD-Basic",
-    "description": "ABASC supported LOCOMOTIVE AMSTRAD BASIC syntax highlighting",
+    "displayName": "Abasc Compiler",
+    "description": "Support for Locomotive Basic Syntax.",
     "version": "1.1.0",
     "publisher": "fragarco",
     "engines": {
