@@ -1,5 +1,8 @@
 import * as vscode from 'vscode';
 import { BasicInfo } from './basicinfo';
+import { BaseInfo } from './baseinfo';
+import { CPCRSLIBInfo } from './cpcrslibinfo';
+import { CPCTeleraInfo } from './cpctelerainfo';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -10,7 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
         },
         {
             provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
-                return BasicInfo;
+                return [...BasicInfo, ...BaseInfo, ...CPCTeleraInfo, ...CPCRSLIBInfo];
             }
         },
         '.' // list of characters that trigger the autocompletion

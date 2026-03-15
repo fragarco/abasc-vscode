@@ -1,8 +1,5 @@
 import * as vscode from 'vscode';
-
-interface AbascCompletionInfo extends vscode.CompletionItem {
-    signature: string;
-}
+import { AbascCompletionInfo } from './abasccompletioninfo';
 
 export const BasicInfo: AbascCompletionInfo[] = [
     {
@@ -51,7 +48,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         label: "CALL",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
-        signature: "CALL <address expression> ,[<list of: <parameter>]",
+        signature: "CALL <address expr>,[<list of: <parameter>] | <SUB ident>",
         documentation: new vscode.MarkdownString(
             "Allows an externally developed sub-routine to be invoked from BASIC. "+
             "The routine is called with IX pointing to the list of parameters and A "+
