@@ -170,7 +170,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmDrawTileBox2x4(x, y, w, h, mapw, videomem, timemap)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws (or redraws) a determined rectangle of tiles inside a tilemap.  It is mainly used to restore parts of a tilemap."),
         insertText: new vscode.SnippetString("cpctetmDrawTileBox2x4(${1:x}, ${2:y}, ${3:w}, ${4:h}, ${5:mapw}, ${6:videomem}, ${7:timemap})"),
     },
     {
@@ -178,7 +179,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmDrawTilemap2x4f(vieww, viewh, vmem, tiles)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a complete tilemap made of 2x4-bytes tiles (Fast version)."),
         insertText: new vscode.SnippetString("cpctetmDrawTilemap2x4f(${1:vieww}, ${2:viewh}, ${3:vmem}, ${4:tiles})"),
     },
     {
@@ -186,7 +188,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmDrawTilemap4x8ag(memaddress, tileids)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws an aligned view of a tilemap made of 4x8-bytes tiles. Tiles must be "+
+            "codified as zig-zagged rows (left-to-right, then right-to-left) and with "+
+            "scanlines in Gray-code order 0,1,3,2,6,7,5,4 (zgtiles format)."),
         insertText: new vscode.SnippetString("cpctetmDrawTilemap4x8ag(${1:memaddress}, ${2:tileids})"),
     },
     {
@@ -194,7 +199,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmDrawTilemap4x8agf(memaddress, tileids)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws an aligned view of a tilemap made of 4x8-bytes tiles. Tiles must be Gray-coded, "+
+            "with scanline order 0,1,3,2,6,7,5,4. It works identical to cpctetmDrawTilemap4x8ag "+
+            "but faster depending on horizontal repetitions of tiles."),
         insertText: new vscode.SnippetString("cpctetmDrawTilemap4x8agf(${1:memaddress}, ${2:tileids})"),
     },
     {
@@ -202,7 +210,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmDrawTileRow2x4(ntiles, pvideomem, ptmrow)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a given number of consecutive 2x4-bytes tiles of a tilemap as a row."),
         insertText: new vscode.SnippetString("cpctetmDrawTileRow2x4(${1:ntiles}, ${2:pvideomem}, ${3:ptmrow})"),
     },
     {
@@ -210,7 +219,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmSetTileset2x4(tileset)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets an internal pointer to the tileset that will be used when drawing tilemaps with "+
+            "etm-2x4 functions."),
         insertText: new vscode.SnippetString("cpctetmSetTileset2x4(${1:tileset})"),
     },
     {
@@ -218,7 +229,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmSetDrawTilemap4x8ag(vieww, viewh, tilemapw, tiles)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets internal configuration values for cpctetmDrawTilemap4x8ag."),
         insertText: new vscode.SnippetString("cpctetmSetDrawTilemap4x8ag(${1:vieww}, ${2:viewh}, ${3:tilemapw}, ${4:tiles})"),
     },
     {
@@ -226,7 +238,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/easytilemaps.bas",
         signature: "SUB cpctetmSetDrawTilemap4x8agf(vieww, viewh, tilemapw, tiles)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets internal configuration values for cpctetmDrawTilemap4x8agf."),
         insertText: new vscode.SnippetString("cpctetmSetDrawTilemap4x8agf(${1:vieww}, ${2:viewh}, ${3:tilemapw}, ${4:tiles})"),
     },
     {
@@ -234,7 +247,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "FUNCTION cpctDisableFirmware",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Disables Amstrad CPC firmware, preventing it from being executed at every CPU interrupt."),
         insertText: new vscode.SnippetString("cpctDisableFirmware"),
     },
     {
@@ -242,7 +256,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "SUB cpctDisableLowerROM",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Disables Lower ROM [0x0000 - 0x3FFF]"),
         insertText: new vscode.SnippetString("cpctDisableLowerROM"),
     },
     {
@@ -250,7 +265,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "SUB cpctDisableUpperROM",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Disables Upper ROM [0xC000 - 0xFFFF]"),
         insertText: new vscode.SnippetString("cpctDisableUpperROM"),
     },
     {
@@ -258,7 +274,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "SUB cpctEnableLowerROM",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Enables Upper ROM [0x000 - 0x3FFF]"),
         insertText: new vscode.SnippetString("cpctEnableLowerROM"),
     },
     {
@@ -266,7 +283,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "SUB cpctEnableUpperROM",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Enables Upper ROM [0xC000 - 0xFFFF]"),
         insertText: new vscode.SnippetString("cpctEnableUpperROM"),
     },
     {
@@ -274,7 +292,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "SUB cpctReenableFirmware",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Re-enables previously disabled Amstrad CPC firmware."),
         insertText: new vscode.SnippetString("cpctReenableFirmware"),
     },
     {
@@ -282,7 +301,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "FUNCTION cpctRemoveInterruptHandler",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets nothing as interrupt handler (returns every time it is called)."),
         insertText: new vscode.SnippetString("cpctRemoveInterruptHandler"),
     },
     {
@@ -290,7 +310,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
         signature: "SUB cpctSetInterruptHandler(cbaddress)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets a user provided function as new interrupt handler."),
         insertText: new vscode.SnippetString("cpctSetInterruptHandler(${1:cbaddress})"),
     },
     {
