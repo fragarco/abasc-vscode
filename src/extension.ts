@@ -30,10 +30,13 @@ export function activate(context: vscode.ExtensionContext) {
                 const range = document.getWordRangeAtPosition(position);
                 const word = document.getText(range).toUpperCase();
                 const basicDocs: Record<string, vscode.MarkdownString[]> = {}
-
-                for (const item of BasicInfo) {
+                let label = ""
+                const info = [...BasicInfo, ...CPCTeleraInfo, ...CPCRSLIBInfo];
+                for (const item of info) {
                     if (item.label != undefined) {
-                        basicDocs[item.label as string] = [
+                        label = item.label as string
+                        label = label.toUpperCase().replace('$', '')
+                        basicDocs[label] = [
                             new vscode.MarkdownString("```" + item.signature + "```"),
                             item.documentation as vscode.MarkdownString,
                         ];

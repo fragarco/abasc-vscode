@@ -1161,7 +1161,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         documentation: new vscode.MarkdownString(
             "Converts an unsigned 16-bit integer in the range 0 to 65535. Returns an "+
             "integer value in the range -32768 to +32767."),
-        insertText: new vscode.SnippetString('UNT(${1:x}')
+        insertText: new vscode.SnippetString('UNT(${1:x})')
     },
     {
         label: "WAIT",
@@ -1285,7 +1285,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         documentation: new vscode.MarkdownString(
             "Converts **x** in the range 0 to 255, to its character "+
             "string equivalent. Note that 0 to 31 are control characters."),
-        insertText: new vscode.SnippetString('CHR$(${1:x}')
+        insertText: new vscode.SnippetString('CHR$(${1:x})')
     },
     {
         label: "CINT",
@@ -1313,7 +1313,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         documentation: new vscode.MarkdownString(
             "COPies ChaRacter from the current position in the stream (which MUST be "+
             "specified). If the character read is not recognized, a null string is returned."),
-        insertText: new vscode.SnippetString('COPYCHR$(#${1:stream}')
+        insertText: new vscode.SnippetString('COPYCHR$(#${1:stream})')
     },
     {
         label: "COS",
@@ -1394,7 +1394,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
             "FRE(0) returns the amount of memory between end of the program and high jump block starting address. "+
             "FRE(1) return current available heap memory. "+
             'FRE("") forces a free of the heap used memory and returns same value as FRE(0)'),
-        insertText: new vscode.SnippetString('FRE(${1:x}')
+        insertText: new vscode.SnippetString('FRE(${1:x})')
     },
     {
         label: "HEX$",
@@ -1596,7 +1596,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         documentation: new vscode.MarkdownString(
             "Returns the REMAINing count from the delay timer specified in **timer** "+
             "(in the range 0 to 3) and disable it."),
-        insertText: new vscode.SnippetString('REMAIN ${1:timer}')
+        insertText: new vscode.SnippetString('REMAIN(${1:timer})')
     },
     {
         label: "RIGHT$",
@@ -1637,7 +1637,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         documentation: new vscode.MarkdownString(
             "Calculates the SINE of **x**. The function defaults to radian "+
             "measure unless specifically instructed otherwise by the DEG command."),
-        insertText: new vscode.SnippetString('SIN(${1:x}')
+        insertText: new vscode.SnippetString('SIN(${1:x})')
     },
     {
         label: "SQ",

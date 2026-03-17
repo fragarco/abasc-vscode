@@ -21,7 +21,7 @@
                 },
                 {
                     "name": "entity.name.function.amstradbasic",
-                    "match": "(?i:\\b(ABS|ASC|ATN|BIN$|CHR$|CINT|CREAL|COPYCHR$|COS|CURSOR|DEC$|EOF|ERR|ERL|EXP|FIX|FRE|HEX$|HIMEM|INKEY|INKEY$|INP|INSTR|INT|JOY|LEFT$|LEN|LOG10|LOG|LOWER$|MIN|MAX|MID$|PEEK|PI|POS|REMAIN|RIGHT$|RND|ROUND|SIN|SPACE$|SQ|SQR|STR$|STRING$|SGN|TAN|TEST|TESTR|TIME|UPPER$|VAL|XPOS|YPOS|VPOS)\\b(?!\\.))"
+                    "match": "\\b(ABS|ASC|ATN|BIN\\$|CHR\\$|CINT|CREAL|COPYCHR\\$|COS|CURSOR|DEC\\$|EOF|ERR|ERL|EXP|FIX|FRE|HEX\\$|HIMEM|INKEY|INKEY\\$|INP|INSTR|INT|JOY|LEFT\\$|LEN|LOG10|LOG|LOWER\\$|MIN\\$|MAX|MID\\$|PEEK|PI|POS|REMAIN|RIGHT\\$|RND|ROUND|SIN|SPACE\\$|SQ|SQR|STR\\$|STRING\\$|SGN|TAN|TEST|TESTR|TIME|UPPER\\$|VAL|XPOS|YPOS|VPOS)(?!\\w)"
                 },
                 {
                     "name": "comment.line.amstradbasic",
