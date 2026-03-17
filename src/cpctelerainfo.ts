@@ -3,19 +3,12 @@ import { AbascCompletionInfo } from './abasccompletioninfo';
 
 export const CPCTeleraInfo: AbascCompletionInfo[] = [
     {
-        label: "cpctakpDigiDrumStatus",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "cpctelera/audio.bas",
-        signature: "FUNCTION cpctakpDigiDrumStatus",
-        documentation: new vscode.MarkdownString(""),
-        insertText: new vscode.SnippetString("cpctakpDigiDrumStatus"),
-    },
-    {
         label: "cpctakpMusicInit",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpMusicInit(songdata)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets up a music into Arkos Tracker Player to be played later on with cpctakpMusicPlay."),
         insertText: new vscode.SnippetString("cpctakpMusicInit(${1:dataaddr})"),
     },
     {
@@ -23,7 +16,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpMusicPlay",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Plays next music cycle of the present song with Arkos Tracker Player."),
         insertText: new vscode.SnippetString("cpctakpMusicPlay"),
     },
     {
@@ -31,7 +25,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpSetFadeVolume(fadelevel)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets global volumes for creating fade in / out effects."),
         insertText: new vscode.SnippetString("cpctakpSetFadeVolume(${1:fadelevel})"),
     },
     {
@@ -39,7 +34,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "FUNCTION cpctakpSFXGetInstrument(channel)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns the number of the instrument which is playing SFX in the selected channel (0 = Channel free / not playing SFX)."),
         insertText: new vscode.SnippetString("cpctakpSFXGetInstrument(${1:channel})"),
     },
     {
@@ -47,7 +43,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpSFXInit(songdata)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Initializes sound effect instruments to be able to play sound effects."),
         insertText: new vscode.SnippetString("cpctakpSFXInit(${1:dataaddr})"),
     },
     {
@@ -55,7 +52,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpSFXPlay(sfxnum, vol, note, nspeed, invertedpitch, channelbitmask)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            'Plays a concrete sound effect, using the instruments of the "SFX song" given to cpctakpSFXInit '+
+            "when initializing sound effects."),
         insertText: new vscode.SnippetString("cpctakpSFXPlay(${1:sfxnum}, ${2:vol}, ${3:note}, ${4:nspeed}, ${5:invpitch}, ${6:chbitmask})"),
     },
     {
@@ -63,7 +62,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpSFXStop(chbitmask)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Stops the reproduction sound FX on given channels."),
         insertText: new vscode.SnippetString("cpctakpSFXStop(${1:chbitmask})"),
     },
     {
@@ -71,7 +71,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpSFXStopAll",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Stops the reproduction of any sound effect in the 3 channels."),
         insertText: new vscode.SnippetString("cpctakpSFXStopAll"),
     },
     {
@@ -79,7 +80,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "FUNCTION cpctakpSongLoopTimes",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns the number of times that the current playing song has looped (0-255)."),
         insertText: new vscode.SnippetString("cpctakpSongLoopTimes"),
     },
     {
@@ -87,7 +89,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/audio.bas",
         signature: "SUB cpctakpStop",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Stops playing musing and sound effects on all 3 channels."),
         insertText: new vscode.SnippetString("cpctakpStop"),
     },
     {
