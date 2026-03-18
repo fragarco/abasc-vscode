@@ -7,7 +7,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/firmware.bas",
         signature: "SUB rsDisableFirmware",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Disables interruption jump from &0038."),
         insertText: new vscode.SnippetString("rsDisableFirmware"),
     },
     {
@@ -15,7 +16,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/firmware.bas",
         signature: "SUB rsEnableFirmware",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Restores interruption jump previously removed with cpc_DisableFirmware."),
         insertText: new vscode.SnippetString("rsEnableFirmware"),
     },
     {
@@ -23,7 +25,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "FUNCTION rsAnyKeyPressed",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Tests if any key has been pressed. Returns <>0 if any key has been "+
+            "pressed else returns 0."),
         insertText: new vscode.SnippetString("rsAnyKeyPressed"),
     },
     {
@@ -31,7 +35,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "SUB rsAssignKey(entry, keyid)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Assigns the keyid (RSKEY constants) to the specified entry in the key "+
+            "assignment table (0-15 entries)."),
         insertText: new vscode.SnippetString("rsAssignKey(${1:entry}, ${2:keyid})"),
     },
     {
@@ -39,7 +45,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "SUB rsDeleteKeys",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Removes all current key assigments from the key assignment table (0-15 entries)."),
         insertText: new vscode.SnippetString("rsDeleteKeys"),
     },
     {
@@ -47,7 +54,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "SUB rsRedefineKey(entry)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Waits until a key is pressed and assigns it to the key assignment "+
+            "table entry specified (0-15)."),
         insertText: new vscode.SnippetString("rsRedefineKey(${1:entry})"),
     },
     {
@@ -55,7 +64,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "SUB rsScanKeyboard",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Scans entire keyboard and stores all pressed keys."),
         insertText: new vscode.SnippetString("rsScanKeyboard"),
     },
     {
@@ -63,7 +73,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "FUNCTION rsTestKey(entry)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Tests if the key assigned to that entry in the assignment table (0-15) "+
+            "is currently pressed. This forces a rsScanKeyboard."),
         insertText: new vscode.SnippetString("rsTestKey(${1:entry})"),
     },
     {
@@ -71,7 +83,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "FUNCTION rsTestKeyF(entry)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Tests if the key assigned to the assignment entry (0-15) is pressed. "+
+            "Must be used after a call to rsScanKeyboard. This pair of routines are "+
+            "recommended over rsTestKey when 3 or more keys would be checked as it's faster."),
         insertText: new vscode.SnippetString("rsTestKeyF(${1:entry})"),
     },
     {
@@ -79,7 +94,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/keyboard.bas",
         signature: "FUNCTION rsTestKeyboard(kbline)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns an integer value with the keys status for the specified line. "+
+            "Use RSKB.LINE constants as kbline parameter value."),
         insertText: new vscode.SnippetString("rsTestKeyboard(${1:kbline})"),
     },
     {
@@ -87,7 +104,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzConfigurePlayer(bitflags)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets in one call the player status. The parameter is an integer (0-255) "+
+            "that codifies the following values: bit 0 = load song ON/OFF, bit 1 = player ON/OFF, "+
+            "bit 2 = sounds ON/OFF, bit 3 = effects ON/OFF."),
         insertText: new vscode.SnippetString("rsWyzConfigurePlayer(${1:bitflags})"),
     },
     {
@@ -95,7 +115,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzInitPlayer(songstable, effectstable, rulestable, soundstable)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Configures the player with all required data about songs, effects, sounds and rules."),
         insertText: new vscode.SnippetString("rsWyzInitPlayer(${1:songstable}, ${2:effectstable}, ${3:rulestable}, ${4:soundstable})"),
     },
     {
@@ -103,7 +124,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzLoadSong(song)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Select **song** number from the current song table."),
         insertText: new vscode.SnippetString("rsWyzLoadSong(${1:song})"),
     },
     {
@@ -111,7 +133,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzSetTempo(tempo)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the number of interrupts that we should wait before continue playing. "+
+            "Default value is 6 (once every frame)."),
         insertText: new vscode.SnippetString("rsWyzSetTempo(${1:tempo})"),
     },
     {
@@ -119,15 +143,19 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzStartEffect(channel, effect)",
-        documentation: new vscode.MarkdownString(""),
-        insertText: new vscode.SnippetString("rsWyzStartEffect(${1:channel}, ${2:effect})"),
+        documentation: new vscode.MarkdownString(
+            "Plays the sound **effect** from the current effects table on *chl* channel."),
+        insertText: new vscode.SnippetString("rsWyzStartEffect(${1:ch}, ${2:effect})"),
     },
     {
         label: "rsWyzTestPlayer",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "FUNCTION rsWyzTestPlayer",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns an integer (0-255) that codifies the current player status. "+
+            "The state is codified as: bit 0 = song loaded ON/OFF, bit 1 = player ON/OFF, "+
+            "bit 2 = sounds ON/OFF, bit 3 = effects ON/OFF."),
         insertText: new vscode.SnippetString("rsWyzTestPlayer"),
     },
     {
@@ -135,7 +163,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzSetPlayerOn",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Activate current selected music and sounds."),
         insertText: new vscode.SnippetString("rsWyzSetPlayerOn"),
     },
     {
@@ -143,7 +172,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/player.bas",
         signature: "SUB rsWyzSetPlayerOff",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Stop current playing music and sounds."),
         insertText: new vscode.SnippetString("rsWyzSetPlayerOff"),
     },
     {
@@ -151,7 +181,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "FUNCTION rsCollSp(sprite1$, sprite2$)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Tests if two sprites collide. Parameters must be of type RECORD rssp."),
         insertText: new vscode.SnippetString("rsCollSp(${1:recordsp1}, ${2:recordsp2})"),
     },
     {
@@ -159,7 +190,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "SUB rsGetSp(buf, w, h, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Captures a screen area starting at vmem and sized by width and height parameters. "+
+            "Data is copied to the address specified by buf."),
         insertText: new vscode.SnippetString("rsGetSp(${1:buf}, ${2:w}, ${3:h}, ${4:vmem})"),
     },
     {
@@ -167,7 +200,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "SUB rsGetSpXY(buf, w, h, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Captures a video memory area that starts at x and y, sized by width and height parameters. "+
+            "Data is copied to the address specified by buf."),
         insertText: new vscode.SnippetString("rsGetSpXY(${1:buf}, ${2:w}, ${3:h}, ${4:x}, ${5:y})"),
     },
     {
@@ -175,7 +210,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "SUB rsPutSp(sprite$, w, h, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies the sprite data in the specified vmem address. The sprite "+
+            "dimensions are taken from the calling parameters and not from the "+
+            "sprite data which starts with two bytes for W and H that will be ignored."),
         insertText: new vscode.SnippetString("rsPutSp(${1:recordsp}, ${2:w}, ${3:h}, ${4:vmem})"),
     },
     {
@@ -183,7 +221,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "SUB rsPutSpXY(sprite, w, h, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies the sprite data in the specified video memory address that starts at x,y. "+
+            "The sprite dimensions are taken from the calling parameters and not from the "+
+            "sprite data which starts with two bytes for W and H that will be ignored."),
         insertText: new vscode.SnippetString("rsPutSpXY(${1:recordsp, ${2:w}, ${3:h}, ${4:x}, ${5:y})"),
     },
     {
@@ -191,7 +232,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "SUB rsPutSpXOR(sprite, w, h, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies the sprite data in the specified vmem address (XORED). The sprite "+
+            "dimensions are taken from the calling parameters and not from the "+
+            "sprite data which starts with two bytes for W and H that will be ignored."),
         insertText: new vscode.SnippetString("rsPutSpXOR(${1:recordsp}, ${2:w}, ${3:h}, ${4:vmem})"),
     },
     {
@@ -199,7 +243,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/sprite.bas",
         signature: "SUB rsPutSpXORXY(sprite, w, h, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies the sprite data in the specified video memory address that starts at x,y (XORED). "+
+            "The sprite dimensions are taken from the calling parameters and not from the "+
+            "sprite data which starts with two bytes for W and H that will be ignored."),
         insertText: new vscode.SnippetString("rsPutSpXORXY(${1:recordsp}, ${2:w}, ${3:h}, ${4:x}, ${5:y})"),
     },
     {
@@ -207,7 +254,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrStd(npen, text$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints text$ (8x8 custom characters) with color npen at video memory address vmem."),
         insertText: new vscode.SnippetString("rsPrintGphStrStd(${1:npen}, ${2:text}, ${3:vmem})"),
     },
     {
@@ -215,7 +263,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrStdXY(npen, text$, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints text$ (8x8 custom characters) with color npen at video memory address "+
+            "specified by x and y."),
         insertText: new vscode.SnippetString("rsPrintGphStrStdXY(${1:npen}, ${1:text}, ${1:x}, ${1:y})"),
     },
     {
@@ -223,7 +273,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrM0(text$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints text$ (4x8 custom characters) at video memory address vmem. Each "+
+            "character can use up to 4 different colours."),
         insertText: new vscode.SnippetString("rsPrintGphStrM0(${1:text}, ${2:vmem})"),
     },
     {
@@ -231,7 +283,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrXYM0(text$, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints text$ (4x8 custom characters) at video memory address pointed by x, y. "+
+            "Each character can use up to 4 different colours."),
         insertText: new vscode.SnippetString("rsPrintGphStrXYM0(${1:text}, ${2:x}, ${3:y})"),
     },
     {
@@ -239,7 +293,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrM0x2(text$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Same as rsPrintGphStrM0 but doubling the characters size."),
         insertText: new vscode.SnippetString("rsPrintGphStrM0x2(${1:text}, ${2:vmem})"),
     },
     {
@@ -247,7 +302,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrXYM0x2(text$, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Same as rsPrintGphStrXYM0 but doubling the characters size."),
         insertText: new vscode.SnippetString("rsPrintGphStrXYM0x2(${1:text}, ${2:x}, ${3:y})"),
     },
     {
@@ -255,7 +311,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrM1(text$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints text$ (4x8 custom characters) at video memory address vmem. Each "+
+            "character can use up to 4 different colours."),
         insertText: new vscode.SnippetString("rsPrintGphStrM1(${1:text}, ${2:vmem})"),
     },
     {
@@ -263,7 +321,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrXYM1(text$, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints text$ (4x8 custom characters) at video memory address pointed by x, y. "+
+            "Each character can use up to 4 different colours."),
         insertText: new vscode.SnippetString("rsPrintGphStrXYM1(${1:text}, ${2:x}, ${3:y})"),
     },
     {
@@ -271,7 +331,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrM1x2(text$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Same as rsPrintGphStrM1 but doubling the characters size."),
         insertText: new vscode.SnippetString("rsPrintGphStrM1x2(${1:text}, ${2:vmem})"),
     },
     {
@@ -279,7 +340,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsPrintGphStrXYM1x2(text$, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Same as rsPrintGphStrXYM1 but doubling the characters size."),
         insertText: new vscode.SnippetString("rsPrintGphStrXYM1x2(${1:text}, ${2:x}, ${3:y})"),
     },
     {
@@ -287,7 +349,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsSetInkGphStrM0(indind, color)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets one of the text char colours (Mode 0). Each char is defined up to "+
+            "4 colours (0..3)."),
         insertText: new vscode.SnippetString("rsSetInkGphStrM0(${1:indind}, ${2:color})"),
     },
     {
@@ -295,7 +359,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/text.bas",
         signature: "SUB rsSetInkGphStrM1(indind, color)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets one of the text char colours (Mode 1). Each char is defined up to "+
+            "4 colours (0..3)."),
         insertText: new vscode.SnippetString("rsSetInkGphStrM1(${1:indind}, ${2:color})"),
     },
     {
@@ -303,7 +369,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsInitTileMap",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Clears the pointer used to store the tiles array."),
         insertText: new vscode.SnippetString("rsInitTileMap"),
     },
     {
@@ -311,7 +378,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsSetTile(x, y, tile)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the tile index to use for position x, y in the 'superbuffer' "+
+            "(the buffer used to render the scene)."),
         insertText: new vscode.SnippetString("rsSetTile(${1:x}, ${2:y}, ${3:tile})"),
     },
     {
@@ -319,31 +388,40 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "FUNCTION rsReadTile(x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns the tile index used at position x, y in the 'superbuffer' "+
+            "(the buffer used to render the scene)."),
         insertText: new vscode.SnippetString("rsReadTile(${1:x}, ${2:y})"),
+    },
+    {
+        label: "rsRenderTileMap",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "cpcrslib/tilemap.bas",
+        signature: "SUB rsRenderTileMap",
+        documentation: new vscode.MarkdownString(
+            "Fills the entire 'superbuffer' with the current tilemap configuration. The "+
+            "routine rsShowTileMap must be used to actually  transfer the image to the "+
+            "video memory."),
+        insertText: new vscode.SnippetString("rsRenderTileMap"),
     },
     {
         label: "rsShowTileMap",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsShowTileMap",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Transfers the tilemap image from the 'superbuffer' to the video memory. "+
+            "rsRenderTilemap must be called first."),
         insertText: new vscode.SnippetString("rsShowTileMap"),
-    },
-    {
-        label: "rsShowTileMap2",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "cpcrslib/tilemap.bas",
-        signature: "SUB rsShowTileMap2",
-        documentation: new vscode.MarkdownString(""),
-        insertText: new vscode.SnippetString("rsShowTileMap2"),
     },
     {
         label: "rsResetTouchedTiles",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsResetTouchedTiles",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Restarts the array of 'dirty' (touched) tiles, those that must be "+
+            "re-rendered. For example, because they were hidden by a sprite."),
         insertText: new vscode.SnippetString("rsResetTouchedTiles"),
     },
     {
@@ -351,7 +429,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsPutSpTileMap(rssprite$)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Transfers current sptire RECORD rssp.pos coordinates to old coordinates (rssp.opos) "+
+            "and marks the tiles occupied by the sprite as 'dirty' (touched). The routine "+
+            "rsPutSpTilemap2b must be used to actually render the sprite image."),
         insertText: new vscode.SnippetString("rsPutSpTileMap(${1:recordsp})"),
     },
     {
@@ -359,7 +440,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsUpdScr",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Goes through all the dirty (touched) tiles list and draws whatever is set for "+
+            "that position (a background tile or a sprite)."),
         insertText: new vscode.SnippetString("rsUpdScr"),
     },
     {
@@ -367,7 +450,10 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsPutSpTileMap2b(rssprite$)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "The sprite image is drawn in the 'superbuffer' at position rssp.pos. "+
+            "The list of dirty (touched) tiles is NOT updated. The routine rsPutSpTilemap "+
+            "does that."),
         insertText: new vscode.SnippetString("rsPutSpTileMap2b(${1:recordsp})"),
     },
     {
@@ -375,47 +461,39 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "SUB rsPutMaskSpTileMap2b(rssprite$)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "The sprite image (masked image) is drawn in the 'superbuffer' at position rssp.pos. "+
+            "The list of dirty (touched) tiles is NOT updated. The routine rsPutSpTilemap "+
+            "does that."),
         insertText: new vscode.SnippetString("rsPutMaskSpTileMap2b(${1:recordsp})"),
     },
     {
-        label: "rsUpdTileTable",
+        label: "rsTouchTileXY",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
-        signature: "SUB rsUpdTileTable(x, y)",
-        documentation: new vscode.MarkdownString(""),
-        insertText: new vscode.SnippetString("rsUpdTileTable(${1:x}, ${2:y})"),
+        signature: "SUB rsTouchTileXY(x, y)",
+        documentation: new vscode.MarkdownString(
+            "Checks if the given tile X and Y position is already in the dirty table. "+
+            "If not, it adds the tile position to the list."),
+        insertText: new vscode.SnippetString("rsTouchTileXY(${1:x}, ${2:y})"),
     },
     {
         label: "rsGetDoubleBufferAddress",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/tilemap.bas",
         signature: "FUNCTION rsGetDoubleBufferAddress(x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Given a X and Y position, returns the address in the Tilemap's "+
+            "doublebuffer (superbuffer)."),
         insertText: new vscode.SnippetString("rsGetDoubleBufferAddress(${1:x}, ${2:y})"),
-    },
-    {
-        label: "rsScrollLeft00",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "cpcrslib/tilemap.bas",
-        signature: "SUB rsScrollLeft00",
-        documentation: new vscode.MarkdownString(""),
-        insertText: new vscode.SnippetString("rsScrollLeft00"),
-    },
-    {
-        label: "rsScrollRight00",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "cpcrslib/tilemap.bas",
-        signature: "SUB rsScrollRight00",
-        documentation: new vscode.MarkdownString(""),
-        insertText: new vscode.SnippetString("rsScrollRight00"),
     },
     {
         label: "rsPause",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/utils.bas",
         signature: "SUB rsPause(halts)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Waits for the number of interrupts (halts) specified in the argument."),
         insertText: new vscode.SnippetString("rsPause(${1:halts})"),
     },
     {
@@ -423,7 +501,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/utils.bas",
         signature: "FUNCTION rsRandom",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Produces a pseudo-random integer of 16 bits in the range 0-255."),
         insertText: new vscode.SnippetString("rsRandom"),
     },
     {
@@ -431,7 +510,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/utils.bas",
         signature: "SUB rsWaitVSync",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "This is an active wait loop for the VSYNC signal."),
         insertText: new vscode.SnippetString("rsWaitVSync"),
     },
     {
@@ -439,7 +519,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/video.bas",
         signature: "SUB rsClrScr",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills the video memory with ink 0 (similar to CLG)"),
         insertText: new vscode.SnippetString("rsClrScr"),
     },
     {
@@ -447,7 +528,8 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/video.bas",
         signature: "FUNCTION rsGetScrAddress(x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns the video memory address for position x,y."),
         insertText: new vscode.SnippetString("rsGetScrAddress(${1:x}, ${2:y})"),
     },
     {
@@ -455,7 +537,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/video.bas",
         signature: "SUB rsRLI(vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Rotates the given rectangle one byte to the right. The column that "+
+            "goes out of the rectangle is moved to the LEFT."),
         insertText: new vscode.SnippetString("rsRLI(${1:vmem}, ${2:w}, ${3:h})"),
     },
     {
@@ -463,7 +547,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/video.bas",
         signature: "SUB rsRRI(vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Rotates the given rectangle one byte to the left. The column that "+
+            "goes out of the rectangle is moved to the RIGHT."),
         insertText: new vscode.SnippetString("rsRRI(${1:vmem}, ${2:w}, ${3:h})"),
     },
     {
@@ -471,7 +557,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/video.bas",
         signature: "SUB rsSetColour(npen, hwcolour)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the colour (RSHW constants) for a given pen. This routine requires the use of "+
+            "rsDisableFirmware to avoid the interrupt callback from restoring original colour values."),
         insertText: new vscode.SnippetString("rsSetColour(${1:npen}, ${2:hwcolour})"),
     },
     {
@@ -479,7 +567,9 @@ export const CPCRSLIBInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpcrslib/video.bas",
         signature: "SUB rsSetMode(nmode)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the screen video mode (0, 1 or 2). This routine requires the use of "+
+            "rsDisableFirmware to avoid the interrupt callback from restoring original values."),
         insertText: new vscode.SnippetString("rsSetMode(${1:nmode})"),
     },
     {

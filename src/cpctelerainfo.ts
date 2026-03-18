@@ -319,7 +319,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "FUNCTION cpctGetKeypressedAsASCII",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Assuming there is only one Key currently pressed, it returns the ASCII value "+
+            "associated to the pressed key. Returns 0 if no key is currently pressed."),
         insertText: new vscode.SnippetString("cpctGetKeypressedAsASCII"),
     },
     {
@@ -327,7 +329,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "FUNCTION cpctIsAnyKeyPressed",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Checks if there is at least one key pressed. cpctScanKeyboard routines must "+
+            "be used before calling this function."),
         insertText: new vscode.SnippetString("cpctIsAnyKeyPressed"),
     },
     {
@@ -335,7 +339,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "FUNCTION cpctIsAnyKeyPressedf",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Checks if there is at least one key pressed.  This function does the same "+
+            "as cpctIsAnyKeyPressed but ~73% faster. cpctScanKeyboard routines must "+
+            "be used before calling this function."),
         insertText: new vscode.SnippetString("cpctIsAnyKeyPressedf"),
     },
     {
@@ -343,7 +350,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "FUNCTION cpctIsKeyPressed(keyid)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Checks if a concrete key is pressed or not (0 False, <>0 True)."),
         insertText: new vscode.SnippetString("cpctIsKeyPressed(${1:keyid})"),
     },
     {
@@ -351,7 +359,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "SUB cpctScanKeyboard",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Reads the status of keyboard and joysticks and stores it in the 10 bytes "+
+            "(80 bits) array reserved for this purpose."),
         insertText: new vscode.SnippetString("cpctScanKeyboard"),
     },
     {
@@ -359,7 +369,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "SUB cpctScanKeyboardf",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Reads the status of keyboard and joysticks and stores it in the 10 bytes "+
+            "(80 bits) array reserved for this purpose. This version is ~25% faster than regular "+
+            "cpctScanKeyboard"),
         insertText: new vscode.SnippetString("cpctScanKeyboardf"),
     },
     {
@@ -367,7 +380,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "SUB cpctScanKeyboardi",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Reads the status of keyboard and joysticks and stores it in the 10 bytes reserved for "+
+            "this purpose. This routine doesn't disable or reenable interrupts (Interrupt-Unsafe version)."),
         insertText: new vscode.SnippetString("cpctScanKeyboardi"),
     },
     {
@@ -375,7 +390,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/keyboard.bas",
         signature: "SUB cpctScanKeyboardif",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Reads the status of keyboard and joysticks and stores it in the 10 bytes reserved for "+
+            "this purpose. This routine doesn't disable or reenable interrupts (Interrupt-Unsafe version). "+
+            "This version is ~25% faster than regular cpctScanKeyboardi."),
         insertText: new vscode.SnippetString("cpctScanKeyboardif"),
     },
     {
@@ -383,7 +401,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctMemcpy(toptr, fromptr, bytes)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a size bytes from one location to other in memory. This function is an "+
+            "specific implementation of standard C memcpy for Z80 machines, and it is fully "+
+            "compatible with the standard."),
         insertText: new vscode.SnippetString("cpctMemcpy(${1:toptr}, ${2:fromptr}, ${3:bytes})"),
     },
     {
@@ -391,7 +412,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctMemset(arrayptr, value, bytes)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up a complete byte-array in memory with a given 8-bit value (as std memset). "+
+            "This function works for array sizes from 2 to 65535 (it does not work for 0 or 1)."),
         insertText: new vscode.SnippetString("cpctMemset(${1:arrayptr}, ${2:value}, ${3:bytes})"),
     },
     {
@@ -399,7 +422,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctMemsetf8(arrayptr, value, bytes)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up a complete array in memory setting bytes 2-by-2, in chuncks of 8 bytes. Size of the array must "+
+            "be multiple of 8."),
         insertText: new vscode.SnippetString("cpctMemsetf8(${1:arrayptr}, ${2:value}, ${3:bytes})"),
     },
     {
@@ -407,7 +432,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctMemsetf64(arrayptr, value, bytes)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up a complete array in memory setting bytes 2-by-2, in chunks of 64 bytes.  Size of the array must "+
+            "be multiple of 64."),
         insertText: new vscode.SnippetString("cpctMemsetf64(${1:arrayptr}, ${2:value}, ${3:bytes})"),
     },
     {
@@ -415,7 +442,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctMemsetf64i(arrayptr, value, bytes)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up a complete array in memory setting bytes 2-by-2, in chunks of 64 bytes. "+
+            "Size of the array must be multiple of 64. Interrupts are disabled at the start of "+
+            "each 64-bytes-chunk and reenabled at its end."),
         insertText: new vscode.SnippetString("cpctMemsetf64i(${1:arrayptr}, ${2:value}, ${3:bytes})"),
     },
     {
@@ -423,7 +453,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctPageMemory(bankvalue)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Makes accesible a memory zone from the upper 64Kb on a standard CPC 6128 or from a memory "+
+            "extension. Memory layout is defined by the join (OR) of RAM pages constants and memory banks "+
+            "contants. Pages represent 16K chunks while Banks are 64K portions."),
         insertText: new vscode.SnippetString("cpctPageMemory(${1:bankvalue})"),
     },
     {
@@ -431,7 +464,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctSetStackLocation(addr)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets a new location for the program stack in memory."),
         insertText: new vscode.SnippetString("cpctSetStackLocation(${1:addr})"),
     },
     {
@@ -439,7 +473,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/memutils.bas",
         signature: "SUB cpctWaitHalts(halts)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Waits for a given number of halt assembler instructions to be executed (interrupts)."),
         insertText: new vscode.SnippetString("cpctWaitHalts(${1:halts})"),
     },
     {
@@ -447,7 +482,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/random.bas",
         signature: "SUB cpctSRand(seed)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Restores internal index state of Marsaglia’s XORShift 8-bits generator. "+
+            "This ensures that next call to cpctRand will produce 32 new random bits."),
         insertText: new vscode.SnippetString("cpctSRand(${1:seed})"),
     },
     {
@@ -455,7 +492,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/random.bas",
         signature: "FUNCTION cpctRand",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Gets a high-quality 8-bit pseudo-random number using Marsaglia’s XOR-shift "+
+            "algorithm (Using a 32-bits state)"),
         insertText: new vscode.SnippetString("${1:cpctRand}"),
     },
     {
@@ -463,7 +502,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteBlended(vmem, w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws sprites blending them with current contents of screen video memory. "+
+            "It uses XOR by default, but many other blending modes are available."),
         insertText: new vscode.SnippetString("cpctDrawSpriteBlended(${1:vmem}, ${2:w}, ${3:h}, ${4:sprite})"),
     },
     {
@@ -471,7 +512,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctSetBlendMode(bmode) ASM",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Establishes the blending mode that cpct_drawSpriteBlended will use from now on."+
+            "The possible values are any of the CPCTBLEND constants."),
         insertText: new vscode.SnippetString("cpctSetBlendMode(${1:bmode})"),
     },
     {
@@ -479,7 +522,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteColorizeM0(sprite, vmem, w, h, rplcpat)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Directly replace a color during sprite drawing to video memory. "+
+            "Pattern should contain 2 8-bit (16 bit integer) colour pixel patterns."),
         insertText: new vscode.SnippetString("cpctDrawSpriteColorizeM0(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h}, ${5:rplcpat})"),
     },
     {
@@ -487,7 +532,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteColorizeM1(sprite, vmem, w, h, rplcpat)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Directly replace a color during sprite drawing to video memory. "+
+            "Pattern should contain 2 8-bit (16 bit integer) colour pixel patterns."),
         insertText: new vscode.SnippetString("cpctDrawSpriteColorizeM1(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h}, ${5:rplcpat})"),
     },
     {
@@ -495,7 +542,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteMaskedAlignedColorizeM0(sprite, vmem, w, h, masktable, rplcpat)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Directly replace a color during sprite drawing to video memory. "+
+            "Pattern should contain 2 8-bit (16 bit integer) colour pixel patterns."),
         insertText: new vscode.SnippetString("cpctDrawSpriteMaskedAlignedColorizeM0(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h}, ${5:masktable}, ${6:rplcpat})"),
     },
     {
@@ -503,7 +552,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteMaskedAlignedColorizeM1(sprite, vmem, w, h, masktable, rplcpat)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Directly replace a color during sprite drawing to video memory. "+
+            "Pattern should contain 2 8-bit (16 bit integer) colour pixel patterns."),
         insertText: new vscode.SnippetString("cpctDrawSpriteMaskedAlignedColorizeM1(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h}, ${5:masktable}, ${6:rplcpat})"),
     },
     {
@@ -511,7 +562,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteMaskedColorizeM0(sprite, vmem, w, h, rplcpat)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Directly replace a color during sprite drawing to video memory. "+
+            "Pattern should contain 2 8-bit (16 bit integer) colour pixel patterns."),
         insertText: new vscode.SnippetString("cpctDrawSpriteMaskedColorizeM0(${1:sprite}, ${1:vmem}, ${2:w}, ${3:h}, ${4:rplcpat})"),
     },
     {
@@ -519,7 +572,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteMaskedColorizeM1(sprite, vmem, w, h, rplcpat)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Directly replace a color during sprite drawing to video memory. "+
+            "Pattern should contain 2 8-bit (16 bit integer) colour pixel patterns."),
         insertText: new vscode.SnippetString("cpctDrawSpriteMaskedColorizeM1(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h}, ${5:rplcpat})"),
     },
     {
@@ -527,7 +582,11 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctSpriteColorizeM0(rplcpat, size, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Replaces a colour pattern (Find Pattern) by a new one (Insert Pattern) in an array/sprite. "+
+            "Typical use is to replace pixels of a given PEN Colour (OldPen) into pixels of a new PEN "+
+            "Colour (NewPen). Replace Pattern => 1st byte=Pattern to Find, 2nd byte=Pattern to "+
+            "insert instead"),
         insertText: new vscode.SnippetString("cpctSpriteColorizeM0(${1:rplcpat}, ${2:size}, ${3:sprite})"),
     },
     {
@@ -535,7 +594,11 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctSpriteColorizeM1(rplcpat, size, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Replaces a colour pattern (Find Pattern) by a new one (Insert Pattern) in an array/sprite. "+
+            "Typical use is to replace pixels of a given PEN Colour (OldPen) into pixels of a new PEN "+
+            "Colour (NewPen). Replace Pattern => 1st byte=Pattern to Find, 2nd byte=Pattern to "+
+            "insert instead"),
         insertText: new vscode.SnippetString("cpctSpriteColorizeM1(${1:rplcpat}, ${2:size}, ${3:sprite})"),
     },
     {
@@ -543,7 +606,11 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctSpriteMaskedColorizeM0(rplcpat, size, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Replaces a colour pattern (Find Pattern) by a new one (Insert Pattern) in an array/sprite. "+
+            "Typical use is to replace pixels of a given PEN Colour (OldPen) into pixels of a new PEN "+
+            "Colour (NewPen). Replace Pattern => 1st byte=Pattern to Find, 2nd byte=Pattern to "+
+            "insert instead"),
         insertText: new vscode.SnippetString("cpctSpriteMaskedColorizeM0(${1:rplcpat}, ${2:size}, ${3:sprite})"),
     },
     {
@@ -551,7 +618,11 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctSpriteMaskedColorizeM1(rplcpat, size, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Replaces a colour pattern (Find Pattern) by a new one (Insert Pattern) in an array/sprite. "+
+            "Typical use is to replace pixels of a given PEN Colour (OldPen) into pixels of a new PEN "+
+            "Colour (NewPen). Replace Pattern => 1st byte=Pattern to Find, 2nd byte=Pattern to "+
+            "insert instead"),
         insertText: new vscode.SnippetString("cpctSpriteMaskedColorizeM1(${1:rplcpat}, ${2:size}, ${3:sprite})"),
     },
     {
@@ -559,7 +630,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileAligned2x4f(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 2x4-byte sprite to video memory (or screen buffer), assuming that location "+
+            "to be copied is in Pixel Lines 0-3 of a character line. The destination byte must be "+
+            "character aligned."),
         insertText: new vscode.SnippetString("cpctDrawTileAligned2x4f(${1:tile}, ${1:vmem})"),
     },
     {
@@ -567,7 +641,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileAligned2x8(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 2x8-byte sprite to video memory (or screen buffer), assuming that location "+
+            "to be copied is Pixel Line 0 of a character line. The destination byte must be "+
+            "character aligned."),
         insertText: new vscode.SnippetString("cpctDrawTileAligned2x8(${1:tile}, ${2:vmem})"),
     },
     {
@@ -575,7 +652,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileAligned2x8f(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 2x8-byte sprite to video memory (or screen buffer), assuming that location "+
+            "to be copied is Pixel Line 0 of a character line. The destination byte must be "+
+            "character aligned. This function is ~26% faster than cpctDrawTileAligned2x8."),
         insertText: new vscode.SnippetString("cpctDrawTileAligned2x8f(${1:tile}, ${2:vmem})"),
     },
     {
@@ -583,7 +663,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileAligned4x4f(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 4x4-byte sprite to video memory (or screen buffer), assuming that location "+
+            "to be copied is from Pixel Line 0 to Pixel Line 3 of a character line. The destination "+
+            "byte must be character aligned."),
         insertText: new vscode.SnippetString("cpctDrawTileAligned4x4f(${1:tile}, ${2:vmem})"),
     },
     {
@@ -591,7 +674,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileAligned4x8(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 4x8-byte sprite to video memory (or screen buffer), assuming that location "+
+            "to be copied is Pixel Line 0 of a character line. The destination "+
+            "byte must be character aligned."),
         insertText: new vscode.SnippetString("cpctDrawTileAligned4x8(${1:tile}, ${2:vmem})"),
     },
     {
@@ -599,7 +685,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileAligned4x8f(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 4x8-byte sprite to video memory (or screen buffer), assuming that location "+
+            "to be copied is Pixel Line 0 of a character line. The destination "+
+            "byte must be character aligned. This function is ~32% faster than cpctDrawTileAligned4x8."),
         insertText: new vscode.SnippetString("cpctDrawTileAligned4x8f(${1:tile}, ${2:vmem})"),
     },
     {
@@ -607,7 +696,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileGrayCode2x8af(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 2x8-byte sprite to video memory (or screen buffer), assuming that the "+
+            "sprite lines are grey-code ordered and the location to be copied is Pixel Line 0 "+
+            "of a character line. The destination byte must be character aligned."),
         insertText: new vscode.SnippetString("cpctDrawTileGrayCode2x8af(${1:tile}, ${2:vmem})"),
     },
     {
@@ -615,7 +707,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawTileZigZagGrayCode4x8af(tile, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a 4x8-byte sprite to video memory (or screen buffer), assuming that the sprite "+
+            "lines are gray-code ordered and zig-zagged (zgtiles), and the location to be copied is "+
+            "Pixel Line 0 of a character line. The destination byte must be character aligned."),
         insertText: new vscode.SnippetString("cpctDrawTileZigZagGrayCode4x8af(${1:tile}, ${2:vmem})"),
     },
     {
@@ -623,7 +718,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawToSpriteBuffer(bufferw, buffer, w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws an sprite inside another sprite’s buffer.  This permits using the destination "+
+            "sprite as a temporary screen back buffer."),
         insertText: new vscode.SnippetString("cpctDrawToSpriteBuffer(${1:bufferw}, ${2:buffer}, ${3:w}, ${4:h}, ${5:sprite})"),
     },
     {
@@ -631,7 +728,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawToSpriteBufferMasked(bufferw, buffer, w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws an sprite inside another sprite’s buffer, using mask as transparency information "+
+            "to prevent erasing the background.  This permits using the destination sprite as a "+
+            "temporary screen back buffer."),
         insertText: new vscode.SnippetString("cpctDrawToSpriteBufferMasked(${1:bufferw}, ${2:buffer}, ${3:w}, ${4:h}, ${5:sprite})"),
     },
     {
@@ -639,7 +739,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawToSpriteBufferMaskedAlignedTable(bufferw, buffer, w, h, sprite, masktable)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws an sprite to back buffer, making use of a given 256-bytes aligned mask table to "+
+            "create transparencies."),
         insertText: new vscode.SnippetString("cpctDrawToSpriteBufferMaskedAlignedTable(${1:bufferw}, ${2:buffer}, ${3:w}, ${4:h}, ${5:sprite}, ${6:masktable})"),
     },
     {
@@ -647,7 +749,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteHFlipM0(sprite, vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a Mode 0 sprite from an array to video memory or Hardware Back Buffer "+
+            "flipping it Horizontally (right to left)."),
         insertText: new vscode.SnippetString("cpctDrawSpriteHFlipM0(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h})"),
     },
     {
@@ -655,7 +759,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteHFlipM1(sprite, vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a Mode 1 sprite from an array to video memory or Hardware Back Buffer "+
+            "flipping it Horizontally (right to left)."),
         insertText: new vscode.SnippetString("cpctDrawSpriteHFlipM1(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h})"),
     },
     {
@@ -663,7 +769,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteHFlipM2(sprite, vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a Mode 2 sprite from an array to video memory or Hardware Back Buffer "+
+            "flipping it Horizontally (right to left)."),
         insertText: new vscode.SnippetString("cpctDrawSpriteHFlipM2(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h})"),
     },
     {
@@ -671,7 +779,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteVFlip(sprite, vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a sprite from an array to video memory or Hardware Back Buffer flipping "+
+            "it vertically (top to bottom)."),
         insertText: new vscode.SnippetString("cpctDrawSpriteVFlip(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h})"),
     },
     {
@@ -679,7 +789,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteVFlipMasked(sprite, vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a masked sprite from an array to video memory or Hardware Back "+
+            "Buffer flipping it vertically (top to bottom)."),
         insertText: new vscode.SnippetString("cpctDrawSpriteVFlipMasked(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h})"),
     },
     {
@@ -687,7 +799,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctGetBottomLeftPtr(vmem, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Gets a pointer to the bottom-left byte of a sprite in video memory, knowing "+
+            "its top-left byte and height."),
         insertText: new vscode.SnippetString("cpctGetBottomLeftPtr(${1:vmem}, ${2:h})"),
     },
     {
@@ -695,7 +809,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteM0(w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, mode 0."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteM0(${1:w}, ${2:h}, ${3:sprite})"),
     },
     {
@@ -703,7 +818,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHfFlipSpriteM0r(sprite, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, "+
+            "mode 0. ROM-friendly version."),
         insertText: new vscode.SnippetString("cpctHfFlipSpriteM0r(${1:sprite}, ${2:w}, ${3:h})"),
     },
     {
@@ -711,7 +828,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteM1(w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, mode 1."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteM1(${1:w}, ${2:h}, ${3:sprite})"),
     },
     {
@@ -719,7 +837,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteM1r(sprite, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, "+
+            "mode 1. ROM-friendly version."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteM1r(${1:sprite}, ${2:w}, ${3:h})"),
     },
     {
@@ -727,7 +847,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteM2(w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, mode 2."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteM2(${1:w}, ${2:h}, ${3:sprite})"),
     },
     {
@@ -735,7 +856,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteM2r(sprite, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, "+
+            "mode 2. ROM-friendly version."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteM2r(${1:sprite}, ${2:w}, ${3:h})"),
     },
     {
@@ -743,7 +866,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteMaskedM0(w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, mode 0, with interlaced mask."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteMaskedM0(${1:w}, ${2:h}, ${3:sprite})"),
     },
     {
@@ -751,7 +875,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteMaskedM1(w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, mode 1, with interlaced mask."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteMaskedM1(${1:w}, ${2:h}, ${3:sprite})"),
     },
     {
@@ -759,15 +884,28 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctHFlipSpriteMaskedM2(w, h, sprite)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Horizontally flips a sprite, encoded in screen pixel format, mode 2, with interlaced mask."),
         insertText: new vscode.SnippetString("cpctHFlipSpriteMaskedM2(${1:w}, ${2:h}, ${3:sprite})"),
+    },
+    {
+        label: "cpctVFlipSprite",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "cpctelera/sprites.bas",
+        signature: "SUB cpctVFlipSprite(w, h, sptladdr, spbladdr)",
+        documentation: new vscode.MarkdownString(
+            "Flips a sprite vertically in-place, modifying it. It does it by interchanging "+
+            "top and bottom rows one by one. cpctGetBottomLeftPtr can be used to retrieve "+
+            "bottom-left address."),
+        insertText: new vscode.SnippetString("cpctVFlipSprite(${1:w}, ${2:h}, ${3:sptl}, ${4:spbl})"),
     },
     {
         label: "cpctGetScreenToSprite",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctGetScreenToSprite(vmem, sprite, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies sprite data from screen video memory to a linear array (a sprite)."),
         insertText: new vscode.SnippetString("cpctGetScreenToSprite(${1:vmem, ${1:sprite}, ${2:w}, ${3:h})"),
     },
     {
@@ -775,7 +913,10 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSolidBox(address, cpattern, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up a rectangle in video memory (or screen buffer) with a given colour data "+
+            "byte. Could be used for drawing coloured rectangles as well as erasing screen "+
+            "rectangles easily."),
         insertText: new vscode.SnippetString("cpctDrawSolidBox(${1:address}, ${2:cpattern}, ${3:w}, ${4:h})"),
     },
     {
@@ -783,7 +924,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSprite(sprite, videopos, spwidth, spheight)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a sprite from an array to video memory (or to a screen buffer)."),
         insertText: new vscode.SnippetString("cpctDrawSprite(${1:sprite}, ${2:videopos}, ${3:spwidth}, ${4:spheight})"),
     },
     {
@@ -791,7 +933,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteMasked(sprite, vmem, w, h)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Copies a masked sprite from an array to video memory (or to a screen buffer), using mask as "+
+            "transparency information, to prevent erasing the background."),
         insertText: new vscode.SnippetString("cpctDrawSpriteMasked(${1:sprite}, ${2:vmem}, ${3:w}, ${4:h})"),
     },
     {
@@ -799,7 +943,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "SUB cpctDrawSpriteMaskedAlignedTable(sprite, vmem, w, h, masktable)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws an sprite to video memory (or to a screen buffer), making use of a given "+
+            "256-bytes aligned mask table to create transparencies."),
         insertText: new vscode.SnippetString("cpctDrawSpriteMaskedAlignedTable(${1:sprite, ${1:vmem}, ${2:w}, ${3:h}, ${4:masktable})"),
     },
     {
@@ -807,7 +953,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctPen2pixelPatternM0(pnum)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns 1 byte in Mode 0 screen pixel format containing a pattern with "+
+            "all 2 pixels in the same pen colour as given by the argument PEN."),
         insertText: new vscode.SnippetString("cpctPen2pixelPatternM0(${1:pnum})"),
     },
     {
@@ -815,7 +963,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctPen2pixelPatternM1(pnum)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns 1 byte in Mode 1 screen pixel format containing a pattern with "+
+            "all 4 pixels in the same pen colour as given by the argument PEN."),
         insertText: new vscode.SnippetString("cpctPen2pixelPatternM1(${1:pnum})"),
     },
     {
@@ -823,7 +973,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctPen2TwoPixelPatternM0(newpen, oldpen)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns 16 bits in Mode 0 screen pixel format, containing two pattern with all "+
+            "2 pixels in the same pen colour as given by the arguments OldPen and NewPen."),
         insertText: new vscode.SnippetString("cpctPen2TwoPixelPatternM0(${1:newpen}, ${2:oldpen})"),
     },
     {
@@ -831,23 +983,29 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctPen2TwoPixelPatternM1(newpen, oldpen)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns 16 bits in Mode 1 screen pixel format, containing two pattern with all 4 "+
+            "pixels in the same pen colour as given by the arguments OldPen and NewPen."),
         insertText: new vscode.SnippetString("cpctPen2TwoPixelPatternM1(${1:newpen}, ${2:oldpen})"),
     },
     {
         label: "cpctpx2byteM0",
         kind: vscode.CompletionItemKind.Function,
-        detail: "cpctelera/strings.bas",
+        detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctpx2byteM0(px0, px1)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Transforms 2 pixel colour values [0-15] into a byte value "+
+            "in the video memory pixel format for Mode 0."),
         insertText: new vscode.SnippetString("cpctpx2byteM0(${1:px0}, ${2:px1})"),
     },
     {
         label: "cpctpx2byteM1",
         kind: vscode.CompletionItemKind.Function,
-        detail: "cpctelera/strings.bas",
+        detail: "cpctelera/sprites.bas",
         signature: "FUNCTION cpctpx2byteM1(px0, px1, px2, px3)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Transforms 4 pixel colour values [0-3] into a byte value in "+
+            "the video memory pixel format for Mode 1."),
         insertText: new vscode.SnippetString("cpctpx2byteM1(${1:px0}, ${2:px1}, ${3:px2}, ${4:px3})"),
     },
     {
@@ -855,7 +1013,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctDrawCharM0(vmem, chnum)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a ROM character to the screen or hardware back-buffer in Mode 0 "+
+            "format (160x200 px, 16 colours)."),
         insertText: new vscode.SnippetString("cpctDrawCharM0(${1:vmem}, ${2:chnum})"),
     },
     {
@@ -863,7 +1023,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctDrawCharM1(vmem, chnum)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints a ROM character on a given byte-aligned position on the screen "+
+            "in Mode 1 (320x200 px, 4 colours)."),
         insertText: new vscode.SnippetString("cpctDrawCharM1(${1:vmem}, ${2:chnum})"),
     },
     {
@@ -871,7 +1033,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctDrawCharM2(vmem, chnum)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints a ROM character on a given byte-aligned position on the screen "+
+            "in Mode 2 (640x200 px, 2 colours)."),
         insertText: new vscode.SnippetString("cpctDrawCharM2(${1:vmem}, ${2:chnum})"),
     },
     {
@@ -879,7 +1043,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctDrawStringM0(s$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Draws a string with ROM characters to video memory or to a hardware "+
+            "backbuffer in Mode 0 (160x200, 16 colours)."),
         insertText: new vscode.SnippetString("cpctDrawStringM0(${1:string}, ${2:vmem})"),
     },
     {
@@ -887,7 +1053,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctDrawStringM1(s$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints a string with ROM characters on a given byte-aligned "+
+            "position on the screen in Mode 1 (320x200px, 4 colours)."),
         insertText: new vscode.SnippetString("cpctDrawStringM1(${1:string}, ${2:vmem})"),
     },
     {
@@ -895,7 +1063,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctDrawStringM2(s$, vmem)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Prints a null-terminated string with ROM characters on a given "+
+            "byte-aligned position on the screen in Mode 2 (640x200px, 2 colours)."),
         insertText: new vscode.SnippetString("cpctDrawStringM2(${1:string}, ${2:vmem})"),
     },
     {
@@ -903,7 +1073,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctSetDrawCharM0(fg, bg)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets foreground and background colours that will be used by "+
+            "cpctDrawCharM0 and cpctDrawStringM0."),
         insertText: new vscode.SnippetString("cpctSetDrawCharM0(${1:fg}, ${2:bg})"),
     },
     {
@@ -911,7 +1083,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctSetDrawCharM1(fg, bg)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets foreground and background colours that will be used by "+
+            "cpctDrawCharM1 and cpctDrawStringM1."),
         insertText: new vscode.SnippetString("cpctSetDrawCharM1(${1:fg}, ${2:bg})"),
     },
     {
@@ -919,7 +1093,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/strings.bas",
         signature: "SUB cpctSetDrawCharM2(fg, bg)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets foreground and background colours that will be used by "+
+            "cpctDrawCharM2 and cpctDrawStringM2."),
         insertText: new vscode.SnippetString("cpctSetDrawCharM2(${1:fg}, ${2:bg})"),
     },
     {
@@ -927,7 +1103,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctClearScreen(color)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up all the standard screen (range [0xC000-0xFFFF]) with COLOR byte, "+
+            "the colour pattern given. Calls cpctMemsetf8 internally."),
         insertText: new vscode.SnippetString("cpctClearScreen(${1:color})"),
     },
     {
@@ -935,7 +1113,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctClearScreenf64(color)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Fills up all the standard screen (range [0xC000-0xFFFF]) with COLOR byte, "+
+            "the colour pattern given. Calls cpctMemsetf64 internally."),
         insertText: new vscode.SnippetString("cpctClearScreenf64(${1:color})"),
     },
     {
@@ -943,7 +1123,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "FUNCTION cpctCount2VSYNC",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Waits until CRTC produces vertical synchronization signal (VSYNC), "+
+            "counting the number of active wait loop cycles done."),
         insertText: new vscode.SnippetString("cpctCount2VSYNC"),
     },
     {
@@ -951,7 +1133,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctFW2HW(paldir, items)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Converts an array of firmware colour values into their equivalent "+
+            "hardware colour values."),
         insertText: new vscode.SnippetString("cpctFW2HW(${1:paldir}, ${2:items})"),
     },
     {
@@ -959,7 +1143,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "FUNCTION cpctGetHWColour(fwcol)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Converts a firmware colour value into its equivalent hardware one."),
         insertText: new vscode.SnippetString("cpctGetHWColour(${1:fwcol})"),
     },
     {
@@ -967,7 +1152,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "FUNCTION cpctGetScreenPtr(vstart, x, y)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Returns a byte-pointer to a screen memory location, given its X, Y coordinates. "+
+            "(in bytes, NOT in pixels!)"),
         insertText: new vscode.SnippetString("cpctGetScreenPtr(${1:vstart}, ${2:x}, ${3:y})"),
     },
     {
@@ -975,7 +1162,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "FUNCTION cpctGetVSYNCStatus",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Check if the vertical synchronization signal (VSYNC) is active or not."),
         insertText: new vscode.SnippetString("cpctGetVSYNCStatus"),
     },
     {
@@ -983,7 +1171,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetBorder(hwcolor)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Changes the colour of the screen border."),
         insertText: new vscode.SnippetString("cpctSetBorder(${1:hwcolor})"),
     },
     {
@@ -991,7 +1180,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetCRTCReg(regnum, newval)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets a new value for a given CRTC register."),
         insertText: new vscode.SnippetString("cpctSetCRTCReg(${1:regnum}, ${2:newval})"),
     },
     {
@@ -999,7 +1189,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetPALColour(ipen, hwcolor)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Changes one colour value of the Palette, similarly to BASIC's INK instruction."),
         insertText: new vscode.SnippetString("cpctSetPALColour(${1:ipen}, ${2:hwcolor})"),
     },
     {
@@ -1007,7 +1198,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetPalette(palptr, items)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Changes the hardware palette colour values (selecting new ones)."),
         insertText: new vscode.SnippetString("cpctSetPalette(${1:palptr}, ${2:items})"),
     },
     {
@@ -1015,7 +1207,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetVideoMemoryOffset(offset)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the 8 Least Significant bits (the offset) of the memory address "+
+            "where video memory starts."),
         insertText: new vscode.SnippetString("cpctSetVideoMemoryOffset(${1:offset})"),
     },
     {
@@ -1023,7 +1217,9 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetVideoMemoryPage(pageid)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the 6 most significant bits (the page) of the memory address "+
+            "where video memory starts (uses VMP.PAGE consts)."),
         insertText: new vscode.SnippetString("cpctSetVideoMemoryPage(${1:pageid})"),
     },
     {
@@ -1031,7 +1227,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctSetVideoMode(vmode)",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Sets the video mode of the CPC Screen, changing resolution and palette size."),
         insertText: new vscode.SnippetString("cpctSetVideoMode(${1:vmode})"),
     },
     {
@@ -1039,7 +1236,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctWaitVSYNC",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Waits until CRTC produces vertical synchronization signal (VSYNC) and returns."),
         insertText: new vscode.SnippetString("cpctWaitVSYNC"),
     },
     {
@@ -1047,7 +1245,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/video.bas",
         signature: "SUB cpctWaitVSYNCStart",
-        documentation: new vscode.MarkdownString(""),
+        documentation: new vscode.MarkdownString(
+            "Waits until the start of the vertical synchronization signal (VSYNC) and returns."),
         insertText: new vscode.SnippetString("cpctWaitVSYNCStart"),
     },
     {
