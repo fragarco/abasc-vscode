@@ -64,6 +64,19 @@ export const BaseInfo: AbascCompletionInfo[] = [
         insertText: new vscode.SnippetString("scrDrawSprite(${1:x}, ${2:y})")
     },
     {
+        label: "scrDrawSpriteXOR",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "SUB scrDrawSprite(<x coord>, <y coord>)",
+        documentation: new vscode.MarkdownString(
+            "Draws a sprite using the firmware. The data must start with two bytes "+
+            "setting the width (in bytes) and the height (in lines). The data to use "+
+            "must be added using DATA commands and the sprite to draw must be set with "+
+            "RESTORE just before the call to scrDrawSprite. The sprite's pixels are mixed "+
+            "with the screen using a XOR function."),
+        insertText: new vscode.SnippetString("scrDrawSprite(${1:x}, ${2:y})")
+    },
+    {
         label: "scrPeekColor",
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
