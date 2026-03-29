@@ -16,7 +16,6 @@ export function activate(context: vscode.ExtensionContext) {
                 return [...BasicInfo, ...BaseInfo, ...CPCTeleraInfo, ...CPCRSLIBInfo];
             }
         },
-        '.' // list of characters that trigger the autocompletion
     );
     context.subscriptions.push(completionProvider);
 
@@ -31,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
                 const word = document.getText(range).toUpperCase();
                 const basicDocs: Record<string, vscode.MarkdownString[]> = {}
                 let label = ""
-                const info = [...BasicInfo, ...CPCTeleraInfo, ...CPCRSLIBInfo];
+                const info = [...BasicInfo, ...BaseInfo, ...CPCTeleraInfo, ...CPCRSLIBInfo];
                 for (const item of info) {
                     if (item.label != undefined) {
                         label = item.label as string
