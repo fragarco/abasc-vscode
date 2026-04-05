@@ -2,7 +2,7 @@
     "name": "abascbasic",
     "displayName": "Abasc Compiler",
     "description": "Support for Locomotive Basic Syntax.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "publisher": "fragarco",
     "engines": {
         "vscode": "^1.12.0"

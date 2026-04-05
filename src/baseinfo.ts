@@ -16,7 +16,9 @@ export const BaseInfo: AbascCompletionInfo[] = [
         detail: "base/screen.bas",
         signature: "FUNCTION scrDotPos(<x coord>, <y coord>)",
         documentation: new vscode.MarkdownString(
-            "Return the memory address thatt matches the screen coordinate **x**, **y**."),
+            "Return the memory address that matches the screen coordinate **x**, **y**. "+
+            "The range for **x** depends on the screen video mode: 0 (0-159), 1 (0-319), "+
+            "2 (0-639). **y** range always is 0-199."),
         insertText: new vscode.SnippetString('scrDotPos(${1:x}, ${2:y})')
     },
     {
@@ -55,26 +57,64 @@ export const BaseInfo: AbascCompletionInfo[] = [
         label: "scrDrawSprite",
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
-        signature: "SUB scrDrawSprite(<x coord>, <y coord>)",
+        signature: "SUB scrDrawSprite(<x byte>, <y line>)",
         documentation: new vscode.MarkdownString(
             "Draws a sprite using the firmware. The data must start with two bytes "+
-            "setting the width (in bytes) and the height (in lines). The data to use "+
-            "must be added using DATA commands and the sprite to draw must be set with "+
-            "RESTORE just before the call to scrDrawSprite."),
-        insertText: new vscode.SnippetString("scrDrawSprite(${1:x}, ${2:y})")
+            "setting the width in bytes and the height in lines (DATA &HHWW). The data "+
+            "to use must be added using DATA commands and the sprite to draw must be selected "+
+            "with RESTORE just before the call to scrDrawSprite. The range for **x** is 0-79 "+
+            "and 0-199 for **y**."),
+        insertText: new vscode.SnippetString("scrDrawSprite(${1:xbyte}, ${2:yline})")
     },
     {
         label: "scrDrawSpriteXOR",
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
-        signature: "SUB scrDrawSpriteXOR(<x coord>, <y coord>)",
+        signature: "SUB scrDrawSpriteXOR(<x byte>, <y line>)",
         documentation: new vscode.MarkdownString(
             "Draws a sprite using the firmware. The data must start with two bytes "+
-            "setting the width (in bytes) and the height (in lines). The data to use "+
-            "must be added using DATA commands and the sprite to draw must be set with "+
-            "RESTORE just before the call to scrDrawSpriteXOR. The sprite's pixels are mixed "+
-            "with the screen using a XOR function."),
-        insertText: new vscode.SnippetString("scrDrawSpriteXOR(${1:x}, ${2:y})")
+            "setting the width in bytes) and the height in lines (DATA &HHWW). The data to use "+
+            "must be added using DATA commands and the sprite to draw must be selected with "+
+            "RESTORE just before the call to scrDrawSpriteXOR. The range for **x** is 0-79 "+
+            "and 0-199 for **y**."),
+        insertText: new vscode.SnippetString("scrDrawSpriteXOR(${1:xbyte}, ${2:yline})")
+    },
+        {
+        label: "scrDrawSpriteClipped",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "SUB scrDrawSpriteClipped(<x byte>, <y line>)",
+        documentation: new vscode.MarkdownString(
+            "Draws a sprite using the firmware. The data must start with two bytes "+
+            "setting the width in bytes and the height in lines (DATA &HHWW). The data "+
+            "to use must be added using DATA commands and the sprite to draw must be selected "+
+            "with RESTORE just before the call to scrDrawSprite. The range for **x** is 0-79 "+
+            "and 0-199 for **y**. The sprite image is clipped according the to the view area set" +
+            "by scrSetClippingView"),
+        insertText: new vscode.SnippetString("scrDrawSpriteClipped(${1:xbyte}, ${2:yline})")
+    },
+    {
+        label: "scrDrawSpriteClippedXOR",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "SUB scrDrawSpriteClippedXOR(<x byte>, <y line>)",
+        documentation: new vscode.MarkdownString(
+            "Draws a sprite using the firmware. The data must start with two bytes "+
+            "setting the width in bytes) and the height in lines (DATA &HHWW). The data to use "+
+            "must be added using DATA commands and the sprite to draw must be selected with "+
+            "RESTORE just before the call to scrDrawSpriteXOR. The range for **x** is 0-79 "+
+            "and 0-199 for **y**. The sprite image is clipped according to the view area set " +
+            "by scrSetClippingView"),
+        insertText: new vscode.SnippetString("scrDrawSpriteClippedXOR(${1:xbyte}, ${2:yline})")
+    },
+    {
+        label: "scrSetClippingView",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "SUB scrSetClippingView(<x0 byte>, <y0 line>, <x1 byte>, <y1 line>)",
+        documentation: new vscode.MarkdownString(
+            "Sets the clipping view area for scrDrawSpriteClipped and scrDrawSpriteClippendXOR routines."),
+        insertText: new vscode.SnippetString("scrSetClippingView(${1:xbyte0}, ${2:yline0}, ${3:xbyte1}, ${4:yline1})")
     },
     {
         label: "scrPeekColor",
@@ -82,8 +122,45 @@ export const BaseInfo: AbascCompletionInfo[] = [
         detail: "base/screen.bas",
         signature: "FUNCTION scrPeekColor(<x coord>, <y coord>)",
         documentation: new vscode.MarkdownString(
-            "Return the current ink for the screen **x**, **y** coordinates"),
+            "Return the current ink for the screen **x**, **y** coordinates. These coordinates "+
+            "are independent from the video mode, and thus, the range is 0-0 to 639-399."),
         insertText: new vscode.SnippetString("scrPeekColor(${1:x}, ${2:y})")
+    },
+    {
+        label: "scrByteToX",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "FUNCTION scrByteToX(<x byte>)",
+        documentation: new vscode.MarkdownString(
+            "Returns the related x graphic coordinate in the 0-639 range."),
+        insertText: new vscode.SnippetString("scrByteToX(${1:xbyte})")
+    },
+    {
+        label: "scrXToByte",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "FUNCTION scrXToByte(<x>)",
+        documentation: new vscode.MarkdownString(
+            "Returns the related x sprite coordinate in the 0-79 range."),
+        insertText: new vscode.SnippetString("scrXToByte(${1:x})")
+    },
+    {
+        label: "scrLineToY",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "FUNCTION scrLineToY(<y line>)",
+        documentation: new vscode.MarkdownString(
+            "Returns the related y graphic coordinate in the 0-399 range."),
+        insertText: new vscode.SnippetString("scrLineToY(${1:yline})")
+    },
+    {
+        label: "scrYToLine",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "base/screen.bas",
+        signature: "FUNCTION scrYToLine(<y>)",
+        documentation: new vscode.MarkdownString(
+            "Returns the related y sprite coordinate in the 0-199 range."),
+        insertText: new vscode.SnippetString("scrYToLine(${1:y})")
     },
     {
         label: "scrInitDoubleBuffer",
@@ -185,7 +262,9 @@ export const BaseInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
         signature: "SUB scrFillBox(<x1>,<y1>,<x2>,<y2>,<pen>)",
-        documentation: new vscode.MarkdownString("Draws a filled box."),
+        documentation: new vscode.MarkdownString(
+            "Draws a filled box. Coordinates are independent from the video mode "+
+            "and thus the range goes from 0,0 to 639,399."),
         insertText: new vscode.SnippetString('scrFillBox(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:npen})'),
     },
     {
@@ -193,15 +272,19 @@ export const BaseInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
         signature: "SUB scrDrawBox(<x1>,<y1>,<x2>,<y2>)",
-        documentation: new vscode.MarkdownString("Draws a wireframed box."),
-        insertText: new vscode.SnippetString('scrDrawBox(${1:x1, ${2:y1, ${3:x2, ${4:y2)'),
+        documentation: new vscode.MarkdownString(
+            "Draws a wireframed box. Coodinates are independent from the video mode "+
+            "and thus the range goes from 0,0 to 639,399."),
+        insertText: new vscode.SnippetString('scrDrawBox(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2})'),
     },
     {
         label: "scrDrawTriangle",
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
         signature: "SUB scrDrawTriangle(<x1>,<y1>,<x2>,<y2>,<x3>,<y3>)",
-        documentation: new vscode.MarkdownString("Draws a wireframed triangle."),
+        documentation: new vscode.MarkdownString(
+            "Draws a wireframed triangle. Coodinates are independent from the video mode "+
+            "and thus the range goes from 0,0 to 639,399."),
         insertText: new vscode.SnippetString('scrDrawTriangle(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:x3}, ${6:y3})'),
     },
     {
@@ -209,7 +292,9 @@ export const BaseInfo: AbascCompletionInfo[] = [
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
         signature: "SUB scrDrawPolygon(<x1>,<y1>,<x2>,<y2>,<x3>,<y3>,<x4>,<y4>)",
-        documentation: new vscode.MarkdownString("Draws a wireframed polygon."),
+        documentation: new vscode.MarkdownString(
+            "Draws a wireframed polygon. Coodinates are independent from the video mode "+
+            "and thus the range goes from 0,0 to 639,399."),
         insertText: new vscode.SnippetString('scrDrawPolygon(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:x3}, ${6:y3}, ${7:x4}, ${8:y4})'),
     },
     {
