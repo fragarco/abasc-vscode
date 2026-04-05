@@ -1,6 +1,8 @@
 # Change Log
 
 ## [1.1.1]
+- Better syntax highlighting for hex and binary numbers.
+- Sets default colours.
 - Adds autocomplete information for new BASE routines:
   - scrDrawSpriteClipped(xbyte, y)
   - scrDrawSpriteClippedXOR(xbyte, y)

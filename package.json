@@ -40,7 +40,63 @@
                 "scopeName": "source.abascbasic",
                 "path": "./syntaxes/amstradbasic.tmLanguage.json"
             }
-        ]
+        ],
+        "configurationDefaults": {
+            "editor.insertSpaces": false,
+            "editor.tokenColorCustomizations": {
+                "textMateRules": [
+                    {
+                        "scope": [
+                            "keyword.control.amstradbasic"
+                        ],
+                        "settings": {
+                            "foreground": "#79d109",
+                            "fontStyle": "bold"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "entity.name.function.amstradbasic"
+                        ],
+                        "settings": {
+                            "foreground": "#e98707"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "comment.line.amstradbasic"
+                        ],
+                        "settings": {
+                            "foreground": "#008000"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "keyword.operator.logical.amstradbasic"
+                        ],
+                        "settings":{
+                            "foreground": "#8E8E8E"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "variable.name.amstradbasic"
+                        ],
+                        "settings": {
+                            "foreground": "#32bacc"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "constant.numeric.amstradbasic"
+                        ],
+                        "settings": {
+                            "foreground": "#ffffff"
+                        }
+                    }
+                ]
+            }
+        }
     },
     "scripts": {
         "build": "npx tsc && vsce package -o out"
