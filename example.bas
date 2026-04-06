@@ -167,7 +167,7 @@ YPOS
 ZONE integer
 
 
-100 ` INITIALIZE
+100 ' INITIALIZE
 110 DEFINT a-z
 120 energy=100: attack=30: defense=15
 130 energyen=90: attacken=20: defenseen=10:a$=""
