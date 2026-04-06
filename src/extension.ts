@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
             provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
                 return [...BasicInfo, ...BaseInfo, ...CPCTeleraInfo, ...CPCRSLIBInfo];
             }
-        },
+        }
     );
     context.subscriptions.push(completionProvider);
 
