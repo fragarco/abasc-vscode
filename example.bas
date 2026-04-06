@@ -21,7 +21,8 @@ CLEAR
 CLG
 CLOSEIN
 CLOSEOUT
-CLS#x
+CLS #x
+CONST ident = value
 CONT
 COS(x)
 CREAL
