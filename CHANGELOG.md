@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.2]
+- Fixes END SUB completion
+
 ## [1.1.1]
 - Better syntax highlighting for hex and binary numbers.
 - Sets default colours.

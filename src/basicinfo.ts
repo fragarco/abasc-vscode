@@ -362,7 +362,7 @@ export const BasicInfo: AbascCompletionInfo[] = [
         detail: "Locomotive BASIC Command",
         signature: "END SUB",
         documentation: new vscode.MarkdownString("Signals the end of a subroutine."),
-        insertText: new vscode.SnippetString('END')
+        insertText: new vscode.SnippetString('END SUB')
     },
     {
         label: "END SELECT",
