@@ -32,6 +32,10 @@ vsce package
 
 The VSIX file will be generated inside the `out` directory.
 
+## Colours
+
+This extension sets some default colours. The values can be modified after extension installation by going to "Settings", searching for option "editor.tokenColorCustomizations" and selecting the option "edit on settings.json".
+
 ## Acknowledgments
 
 - This is just a fork from [`Amstrad Basic Visual Code extension`](https://github.com/dfreniche/amstradbasic-vscode)

@@ -75,7 +75,7 @@
                             "keyword.operator.logical.amstradbasic"
                         ],
                         "settings":{
-                            "foreground": "#8E8E8E"
+                            "foreground": "#e98707"
                         }
                     },
                     {
@@ -91,7 +91,7 @@
                             "constant.numeric.amstradbasic"
                         ],
                         "settings": {
-                            "foreground": "#ffffff"
+                            "foreground": "#aaaaaa"
                         }
                     }
                 ]
