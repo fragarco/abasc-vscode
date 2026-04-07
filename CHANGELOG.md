@@ -3,7 +3,8 @@
 ## [1.1.2]
 - Fixes END SUB completion
 - Remove ' (comment) from paired symbols
- 
+- Fixes information about cpctDisableFirmware
+
 ## [1.1.1]
 - Better syntax highlighting for hex and binary numbers.
 - Sets default colours.

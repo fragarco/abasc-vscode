@@ -246,7 +246,7 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         label: "cpctDisableFirmware",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
-        signature: "FUNCTION cpctDisableFirmware",
+        signature: "SUB cpctDisableFirmware",
         documentation: new vscode.MarkdownString(
             "Disables Amstrad CPC firmware, preventing it from being executed at every CPU interrupt."),
         insertText: new vscode.SnippetString("cpctDisableFirmware"),
@@ -291,10 +291,11 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         label: "cpctReenableFirmware",
         kind: vscode.CompletionItemKind.Function,
         detail: "cpctelera/firmware.bas",
-        signature: "SUB cpctReenableFirmware",
+        signature: "SUB cpctReenableFirmware(cbaddress)",
         documentation: new vscode.MarkdownString(
-            "Re-enables previously disabled Amstrad CPC firmware."),
-        insertText: new vscode.SnippetString("cpctReenableFirmware"),
+            "Re-enables previously disabled Amstrad CPC firmware. The parameter is the address "+
+            "that must be stored by the programmer after a call to cpctRemoveInterruptHandler."),
+        insertText: new vscode.SnippetString("cpctReenableFirmware(${1:cbaddress})"),
     },
     {
         label: "cpctRemoveInterruptHandler",
@@ -302,7 +303,8 @@ export const CPCTeleraInfo: AbascCompletionInfo[] = [
         detail: "cpctelera/firmware.bas",
         signature: "FUNCTION cpctRemoveInterruptHandler",
         documentation: new vscode.MarkdownString(
-            "Sets nothing as interrupt handler (returns every time it is called)."),
+            "Sets nothing as interrupt handler and returns the old address, so it can be "+
+            "restored, if desired, calling cpctReenableFirmware or cpctSetInterruptHandler."),
         insertText: new vscode.SnippetString("cpctRemoveInterruptHandler"),
     },
     {
