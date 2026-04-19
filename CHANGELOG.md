@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.3]
+- Fixes case sensitive highligthing of functions
+
 ## [1.1.2]
 - Fixes END SUB completion
 - Remove ' (comment) from paired symbols

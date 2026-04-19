@@ -8,7 +8,8 @@ AND
 ASC(X)
 ATN(1)
 AUTO
-BIN$()
+RND rnd 
+CHR$ chr$ 
 BORDER
 BREAK
 CALL
@@ -81,7 +82,7 @@ MAX (a,b,c,d,e)
 MEMORY &address
 MERGE filename
 MID$ (string, start, number)
-MIN a,b,c,d,e,f etc
+MIN (a,b,c,d,e,f)
 MOD
 MODE number
 MOVE x,y
