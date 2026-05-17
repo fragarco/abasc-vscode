@@ -68,6 +68,7 @@ INT(number)
 JOY(joystick number)
 KEY keynumber,string
 KEY DEF
+LBOUND(array)
 LEFT$(src$, n)
 LEN(string)
 LET
@@ -78,6 +79,7 @@ LOCATE #stream, x,y
 LOG(n)
 LOG10(n)
 LOWER$(string)
+LTRIM$(src$)
 MAX (a,b,c,d,e)
 MEMORY &address
 MERGE filename
@@ -126,6 +128,7 @@ RETURN
 RIGHT$(source, number)
 RND
 ROUND number, places
+RTRIM$(src$)
 RUN <string>
 RUN <line number>
 SAVE filename, type, binary
@@ -153,6 +156,7 @@ TIME
 TRON
 TROFF
 TO
+UBOUND(array)
 UNT(number)
 UPPER$(string)
 VAL

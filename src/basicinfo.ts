@@ -1480,6 +1480,16 @@ export const BasicInfo: AbascCompletionInfo[] = [
         insertText: new vscode.SnippetString('JOY(${1:device})')
     },
     {
+        label: "LBOUND",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "LBOUND(<array>[,<int expr>])",
+        documentation: new vscode.MarkdownString(
+            "This function may be used to determine the lower bound of one of the "+
+            "dimensions of an array."),
+        insertText: new vscode.SnippetString('LBOUND(${1:array}, ${2:dimension})')
+    },
+    {
         label: "LEFT$",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
@@ -1525,6 +1535,15 @@ export const BasicInfo: AbascCompletionInfo[] = [
             "Returns a new string expression the same as **source** but "+
             "in which all upper case characters are converted to lower case."),
         insertText: new vscode.SnippetString('LOWER$(${1:source})')
+    },
+    {
+        label: "LTRIM$",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "LTRIM$(<string expr>)",
+        documentation: new vscode.MarkdownString(
+            "Returns the string expression with any leading spaces removed."),
+        insertText: new vscode.SnippetString('LTRIM$(${1:source})')
     },
     {
         label: "MIN",
@@ -1630,6 +1649,15 @@ export const BasicInfo: AbascCompletionInfo[] = [
         insertText: new vscode.SnippetString('ROUND(${1:x}, ${2:digits})')
     },
     {
+        label: "RTRIM$",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "RTRIM$(<string expr>)",
+        documentation: new vscode.MarkdownString(
+            "Returns the string expression with any trailing spaces removed."),
+        insertText: new vscode.SnippetString('RTRIM$(${1:source})')
+    },
+    {
         label: "SIN",
         kind: vscode.CompletionItemKind.Function,
         detail: "Locomotive BASIC Function",
@@ -1726,6 +1754,16 @@ export const BasicInfo: AbascCompletionInfo[] = [
             "Holds the elapsed time since switch-on, excluding periods when reading or writing "+
             "the cassette (interrupts off). The units of time are 1/300th of a second."),
         insertText: new vscode.SnippetString('TIME')
+    },
+    {
+        label: "UBOUND",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "UBOUND(<array>[,<int expr>])",
+        documentation: new vscode.MarkdownString(
+            "This function may be used to determine the upper bound of one of the "+
+            "dimensions of an array."),
+        insertText: new vscode.SnippetString('UBOUND(${1:array}, ${2:dimension})')
     },
     {
         label: "UPPER$",

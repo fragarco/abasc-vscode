@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.4]
+- Adds LTRIM$, RTRIM$, LBOUND and UBOUND functions
+
 ## [1.1.3]
 - Fixes case sensitive highligthing of functions
 
