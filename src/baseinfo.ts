@@ -261,11 +261,11 @@ export const BaseInfo: AbascCompletionInfo[] = [
         label: "scrFillBox",
         kind: vscode.CompletionItemKind.Function,
         detail: "base/screen.bas",
-        signature: "SUB scrFillBox(<x1>,<y1>,<x2>,<y2>,<pen>)",
+        signature: "SUB scrFillBox(<x1>,<y1>,<x2>,<y2>,<ink>)",
         documentation: new vscode.MarkdownString(
-            "Draws a filled box. Coordinates are independent from the video mode "+
-            "and thus the range goes from 0,0 to 639,399."),
-        insertText: new vscode.SnippetString('scrFillBox(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:npen})'),
+            "Fill a rectangular area of the screen with an ink. The boundaries "+
+            "of this area are given in character positions."),
+        insertText: new vscode.SnippetString('scrFillBox(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:ink})'),
     },
     {
         label: "scrDrawBox",

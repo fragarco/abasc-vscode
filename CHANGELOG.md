@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.5]
+- Fixed description for scrFillBox base's procedure
+
 ## [1.1.4]
 - Adds LTRIM$, RTRIM$, LBOUND and UBOUND functions
 
