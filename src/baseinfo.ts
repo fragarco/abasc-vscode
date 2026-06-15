@@ -264,7 +264,7 @@ export const BaseInfo: AbascCompletionInfo[] = [
         signature: "SUB scrFillBox(<x1>,<y1>,<x2>,<y2>,<ink>)",
         documentation: new vscode.MarkdownString(
             "Fill a rectangular area of the screen with an ink. The boundaries "+
-            "of this area are given in character positions."),
+            "of this area are given in character positions (same system as LOCATE)."),
         insertText: new vscode.SnippetString('scrFillBox(${1:x1}, ${2:y1}, ${3:x2}, ${4:y2}, ${5:ink})'),
     },
     {
