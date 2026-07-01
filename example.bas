@@ -157,6 +157,8 @@ TRON
 TROFF
 TO
 UBOUND(array)
+UNSIGNED(number)
+USTR$(number)
 UNT(number)
 UPPER$(string)
 VAL

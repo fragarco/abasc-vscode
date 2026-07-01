@@ -1,5 +1,8 @@
 # Change Log
 
+## [1.1.6]
+- Adds support for the new UNSIGNED and USTR$ functions
+
 ## [1.1.5]
 - Fixed description for scrFillBox base's procedure
 
