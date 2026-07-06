@@ -1154,35 +1154,6 @@ export const BasicInfo: AbascCompletionInfo[] = [
         insertText: new vscode.SnippetString('STOP')
     },
     {
-        label: "UNSIGNED",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "Locomotive BASIC Function",
-        signature: "UNSIGNED(<address expression>)",
-        documentation: new vscode.MarkdownString(
-            "Converts a signed 16-bit integer in the range -32768 to +32767 to "+
-            "an unsinged 16-bit integer in the range 0 to 65535."),
-        insertText: new vscode.SnippetString('UNSIGNED(${1:x})')
-    },
-    {
-        label: "USTR$",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "Locomotive BASIC Function",
-        signature: "USTR$(<address expression>)",
-        documentation: new vscode.MarkdownString(
-            "Converts the numeric expression to an unsigned integer string representation."),
-        insertText: new vscode.SnippetString('USTR$(${1:x})')
-    },
-    {
-        label: "UNT",
-        kind: vscode.CompletionItemKind.Function,
-        detail: "Locomotive BASIC Function",
-        signature: "UNT(<address expression>)",
-        documentation: new vscode.MarkdownString(
-            "Converts an unsigned 16-bit integer in the range 0 to 65535. Returns an "+
-            "integer value in the range -32768 to +32767."),
-        insertText: new vscode.SnippetString('UNT(${1:x})')
-    },
-    {
         label: "WAIT",
         kind: vscode.CompletionItemKind.Keyword,
         detail: "Locomotive BASIC Command",
@@ -1783,6 +1754,45 @@ export const BasicInfo: AbascCompletionInfo[] = [
             "This function may be used to determine the upper bound of one of the "+
             "dimensions of an array."),
         insertText: new vscode.SnippetString('UBOUND(${1:array}, ${2:dimension})')
+    },
+    {
+        label: "UGREATER",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "UGREATER(<num1>,<num2>)",
+        documentation: new vscode.MarkdownString(
+            "Compares two unsigned integers. Returns -1 (TRUE) if num is greater "+
+            "than num2. Otherwise it returns 0 (FALSE)."),
+        insertText: new vscode.SnippetString('UGREATER(${1:n1},${2:n2})')
+    },
+    {
+        label: "UNSIGNED",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "UNSIGNED(<address expression>)",
+        documentation: new vscode.MarkdownString(
+            "Converts a signed 16-bit integer in the range -32768 to +32767 to "+
+            "an unsinged 16-bit integer in the range 0 to 65535."),
+        insertText: new vscode.SnippetString('UNSIGNED(${1:x})')
+    },
+    {
+        label: "USTR$",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "USTR$(<address expression>)",
+        documentation: new vscode.MarkdownString(
+            "Converts the numeric expression to an unsigned integer string representation."),
+        insertText: new vscode.SnippetString('USTR$(${1:x})')
+    },
+    {
+        label: "UNT",
+        kind: vscode.CompletionItemKind.Function,
+        detail: "Locomotive BASIC Function",
+        signature: "UNT(<address expression>)",
+        documentation: new vscode.MarkdownString(
+            "Converts an unsigned 16-bit integer in the range 0 to 65535. Returns an "+
+            "integer value in the range -32768 to +32767."),
+        insertText: new vscode.SnippetString('UNT(${1:x})')
     },
     {
         label: "UPPER$",
